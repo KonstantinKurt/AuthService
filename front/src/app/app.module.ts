@@ -6,16 +6,19 @@ import {AppComponent} from './app.component';
 import {AuthModule} from "./auth/auth.module";
 import {NavbarModule} from "./navbar/navbar.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import { AboutComponent } from './about/about.component';
+import {AboutModule} from "./about/about.module";
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NavbarModule,
         ReactiveFormsModule,
+        AboutModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

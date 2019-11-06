@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
+    path: 'about',
+    loadChildren: './about/about.module#AboutModule'
   }
 ];
 

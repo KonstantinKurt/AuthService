@@ -5,7 +5,7 @@ import {RegisterComponent} from './register/register.component';
 import {LoginService} from "./login/login.service";
 import {LoginResource} from "./login/login.resource";
 import {AuthRoutingModule} from "./auth-routing.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NavbarModule} from "../navbar/navbar.module";
 import {RegisterService} from "./register/register.service";
 import {RegisterResource} from "./register/register.resource";
@@ -20,7 +20,8 @@ import {RegisterResource} from "./register/register.resource";
         CommonModule,
         FormsModule,
         AuthRoutingModule,
-        NavbarModule
+        NavbarModule,
+        ReactiveFormsModule,
     ],
     providers: [
         LoginService,
@@ -29,7 +30,6 @@ import {RegisterResource} from "./register/register.resource";
         RegisterResource,
     ],
     exports: [
-        AuthRoutingModule,
     ],
 })
 export class AuthModule {
