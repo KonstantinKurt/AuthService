@@ -3,11 +3,9 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {AuthModule} from "./auth/auth.module";
-import {NavbarModule} from "./navbar/navbar.module";
-import {ReactiveFormsModule} from "@angular/forms";
-import { AboutComponent } from './about/about.component';
-import {AboutModule} from "./about/about.module";
+import {NavbarModule} from './navbar/navbar.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {AboutModule} from './about/about.module';
 
 @NgModule({
     declarations: [

@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('AuthForms app is running!');
+    expect(page.getTitleText()).toEqual('Sn_Ng_Nest app is running!');
   });
 
   afterEach(async () => {

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {confirmPasswordValidator} from "../../helpers/confirm-password-validator";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {confirmPasswordValidator} from '../../helpers/confirm-password-validator';
 
 @Component({
     selector: 'app-register',
@@ -16,34 +16,34 @@ export class RegisterComponent implements OnInit {
     private password: FormControl;
     private confirmPassword: FormControl;
     private email: FormControl;
-    private validated: Boolean;
+    private validated: boolean;
 
     constructor() {
     }
 
     ngOnInit() {
-        console.log(this.validated);
         this.createFormControls();
         this.createForm();
     }
 
-    createFormControls() {
-        this.name = new FormControl('', [
+     createFormControls() {
+        this.name =  new FormControl('', [
             Validators.required,
             Validators.minLength(2),
         ]);
-        this.email = new FormControl('', [
+        this.email =  new FormControl('', [
             Validators.required,
             Validators.email,
         ]);
-        this.password = new FormControl('', [
+        this.password =  new FormControl('', [
             Validators.required,
             Validators.minLength(8),
         ]);
-        this.confirmPassword = new FormControl('', [
+        this.confirmPassword =  new FormControl('', [
             Validators.required,
             confirmPasswordValidator('password')
-        ])
+        ]);
+
     }
 
     createForm() {
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
             password: this.password,
             confirmPassword: this.confirmPassword,
             email: this.email,
-        })
+        });
     }
 
     onSubmit() {
@@ -60,8 +60,7 @@ export class RegisterComponent implements OnInit {
             alert(`invalid`);
             this.validated = false;
             return;
-        }
-        else{
+        } else {
             this.validated = true;
             console.log(this.registrationForm.value);
         }

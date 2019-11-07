@@ -1,16 +1,27 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <form class="form col-md-4 formStyle">
+        <form class="form col-md-4 formStyle" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <h2 class="mt-2" style="text-align: center">Login</h2>
-            <div class="form-group m-1">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="Enter email">
+            <div class="form-group m-1" [ngClass]="{
+              'invalid': email.invalid && email.dirty || validated === false,
+              'was-validated': email.valid && email.dirty}">
+                <label for="inputEmail">Email</label>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                       placeholder="Enter email" formControlName="email">
+                <div class="alert alert-danger m-3 text-center" *ngIf="email.invalid && email.dirty">
+                    <p *ngIf="email.errors.required">Required field</p>
+                    <p *ngIf="email.errors.email">Email is invalid</p>
+                </div>
             </div>
-            <div class="form-group mt-3">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <div class="form-group mt-3" [ngClass]="{
+              'invalid': password.invalid && password.dirty || validated === false,
+              'was-validated': password.valid && password.dirty}">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password">
+                <div class="alert alert-danger m-3 text-center" *ngIf="password.invalid && password.dirty">
+                    <p *ngIf="password.errors.required">Required field</p>
+                </div>
             </div>
             <div class="form-group form-check d-flex justify-content-end">
                 <label class="form-check-label flex-end">
@@ -21,3 +32,4 @@
         </form>
     </div>
 </div>
+

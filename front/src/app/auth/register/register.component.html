@@ -9,29 +9,29 @@
                 <label for="inputName">Name</label>
                 <input type="text" class="form-control" id="inputName"
                        placeholder="Enter your name" formControlName="name">
-                <div class="alert alert-danger m-3" *ngIf="name.invalid && name.dirty">
+                <div class="alert alert-danger m-3 text-center" *ngIf="name.invalid && name.dirty">
                     <p *ngIf="name.errors.required">Required field</p>
                     <p *ngIf="name.errors.minlength">Name should contain at least 2 symbols</p>
                 </div>
             </div>
             <div class="form-group m-1" [ngClass]="{
-              'invalid': email.invalid && email.dirty,
+              'invalid': email.invalid && email.dirty || validated === false,
               'was-validated': email.valid && email.dirty}">
                 <label for="inputEmail">Email</label>
                 <input type="email" class="form-control" id="inputEmail"
                        placeholder="Enter your email" formControlName="email">
-                <div class="alert alert-danger m-3" *ngIf="email.invalid && email.dirty">
+                <div class="alert alert-danger m-3 text-center" *ngIf="email.invalid && email.dirty">
                     <p *ngIf="email.errors.required">Required field</p>
                     <p *ngIf="email.errors.email">Email is invalid</p>
                 </div>
             </div>
             <div class="form-group mt-3" [ngClass]="{
-              'invalid': password.invalid && password.dirty,
+              'invalid': password.invalid && password.dirty || validated === false,
               'was-validated': password.valid && password.dirty}">
                 <label for="inputPassword">Password</label>
                 <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password"
                        formControlName="password">
-                <div class="alert alert-danger m-3" *ngIf="password.invalid && password.dirty">
+                <div class="alert alert-danger m-3 text-center" *ngIf="password.invalid && password.dirty">
                     <p *ngIf="password.errors.required">Required field</p>
                     <p *ngIf="password.errors.minlength">Password should contain at least 8 symbols</p>
                 </div>
@@ -42,7 +42,7 @@
                 <label for="confirmPassword">Confirm password</label>
                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password"
                        formControlName="confirmPassword">
-                <div class="alert alert-danger m-3" *ngIf="confirmPassword.invalid && confirmPassword.dirty">
+                <div class="alert alert-danger m-3 text-center" *ngIf="confirmPassword.invalid && confirmPassword.dirty || validated === false">
                     <p *ngIf="confirmPassword.errors.notMatch">Password doesn't match</p>
                 </div>
             </div>
