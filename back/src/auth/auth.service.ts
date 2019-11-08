@@ -7,14 +7,22 @@ import {User} from './interfaces/user.interface';
 import {JwtPayload} from './interfaces/jwt-payload.interface';
 import {LoginDto} from './dto/login.dto';
 import {RegisterDto} from './dto/register.dto';
+import {InjectRepository} from '@nestjs/typeorm';
+import {ProfileEntity} from '../profile/entity/profile.entity';
+import {Repository} from 'typeorm';
+import * as requestIp from 'request-ip';
+
 // import {UpdateEmployeeDto} from '../employee/dto/update-employee.dto';
 // import {UpdateUserDTO} from './dto/update-user.dto';
 
 @Injectable()
 export class AuthService {
     constructor(
-        @InjectModel('User') private readonly userModel: Model<User>,
+        @InjectModel('User')
+        private readonly userModel: Model<User>,
         private readonly jwtService: JwtService,
+        @InjectRepository(ProfileEntity)
+        private readonly profileRepository: Repository<ProfileEntity>,
     ) {
     }
 
@@ -29,17 +37,10 @@ export class AuthService {
                         name: user.name,
                         expires_in: process.env.AUTH_TOKEN_EXPIRES_IN,
                     };
-                    const refreshPayload: JwtPayload = {
-                        id: user.id,
-                        name: user.name,
-                        expires_in: process.env.REFRESH_TOKEN_EXPIRES_IN,
-                    };
                     const accessToken = await this.jwtService.sign(accessPayload);
-                    const refreshToken = await this.jwtService.sign(refreshPayload);
                     return {
                         user_data: accessPayload,
                         access_token: `Bearer ${accessToken}`,
-                        refresh_token: `Bearer ${refreshToken}`,
                     };
                 } else {
                     throw new UnauthorizedException({
@@ -61,6 +62,17 @@ export class AuthService {
         try {
             Logger.log(userData);
             const newUser = await new this.userModel(userData);
+            try {
+               const newProfile = await this.profileRepository.create({
+                   name: userData.name,
+                   email: userData.email,
+               });
+               await this.profileRepository.save(newProfile);
+           } catch (error) {
+                throw new HttpException({
+                    error,
+                }, 500);
+           }
             const resultUser = await newUser.save();
             return {
                 user: resultUser._id,

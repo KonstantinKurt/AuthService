@@ -6,6 +6,7 @@ import {
     Put,
     Req,
     UseGuards,
+    Logger,
 } from '@nestjs/common';
 import {
     ApiCreatedResponse,
@@ -20,6 +21,7 @@ import {AuthService} from './auth.service';
 import {LoginDto} from './dto/login.dto';
 import {RegisterDto} from './dto/register.dto';
 import {AuthGuard} from '@nestjs/passport';
+import {IpAddressCheck} from '../decorators/check-ip-adress.decorator';
 // import {UpdateEmployeeDto} from '../employee/dto/update-employee.dto';
 // import {UpdateUserDTO} from './dto/update-user.dto';
 
@@ -30,12 +32,14 @@ export class AuthController {
     }
 
     @Post('/login')
+
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
     @ApiOperation({title: 'Auth user'})
     @ApiResponse({status: 200, description: 'User authorized successfully!'})
     @ApiNotFoundResponse({description: 'User not found!'})
     @HttpCode(200)
-    async Login(@Body() data: LoginDto): Promise<object> {
+    async Login(@Body() data: LoginDto, @IpAddressCheck() ip: number): Promise<object> {
+        Logger.log(ip);
         return  await this.authService.login(data);
     }
     @Post('/register')
@@ -72,5 +76,5 @@ export class AuthController {
     // async updateProfileByToken(@Body() userData: UpdateUserDTO, @Req() req): Promise<object> {
     //     const token = req.header(`authorization`).split(' ')[1];
     //     return this.authService.updateUserByToken(userData, token);
-    }
+    // }
 }
