@@ -7,6 +7,8 @@ import * as helmet from 'helmet';
 import {getSwaggerDocs} from './config/swagger';
 import * as rateLimit from 'express-rate-limit';
 import * as requestIp from 'request-ip';
+import * as device from 'express-device';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   getSwaggerDocs(app);
@@ -17,6 +19,7 @@ async function bootstrap() {
     max: 100,
   }));
   app.use(requestIp.mw());
+  app.use(device.capture());
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(ConfigService.get('server.appPort'), '0.0.0.0');
   Logger.log(ConfigService.get('server.appStartMessage'));

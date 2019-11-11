@@ -11,4 +11,3 @@ export const typeOrm: TypeOrmModuleOptions = {
     logging: true,
     entities: ['.src/**/*.entity.ts', './dist/**/*.entity.js'],
 };
-

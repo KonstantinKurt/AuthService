@@ -16,6 +16,11 @@ export const UserSchema = new mongoose.Schema({
             required: true,
             unique: true,
         },
+        ip_address: {
+            type: Array,
+            required: true,
+            default: [],
+        },
     },
     {
         versionKey: false,

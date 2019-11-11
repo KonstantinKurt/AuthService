@@ -3,5 +3,6 @@ export default {
         useNewUrlParser: true,
         useFindAndModify: true,
         autoReconnect: true,
+        useUnifiedTopology: true,
     },
 };

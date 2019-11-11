@@ -32,23 +32,21 @@ export class AuthController {
     }
 
     @Post('/login')
-
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
     @ApiOperation({title: 'Auth user'})
     @ApiResponse({status: 200, description: 'User authorized successfully!'})
     @ApiNotFoundResponse({description: 'User not found!'})
     @HttpCode(200)
-    async Login(@Body() data: LoginDto, @IpAddressCheck() ip: number): Promise<object> {
-        Logger.log(ip);
-        return  await this.authService.login(data);
+    async Login(@Body() data: LoginDto, @IpAddressCheck() ip: number, @Req() req): Promise<object> {
+        return  await this.authService.login(data, ip, req.headers['user-agent'].split(' ')[8], req.device.type);
     }
     @Post('/register')
     @ApiOperation({title: 'Register user'})
     @ApiCreatedResponse({description: 'User created successfully!'})
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
     @HttpCode(201)
-    async create(@Body() userData: RegisterDto): Promise<object> {
-        return await this.authService.register(userData);
+    async create(@Body() userData: RegisterDto,  @IpAddressCheck() ip: number): Promise<object> {
+        return await this.authService.register(userData, ip);
 
     }
 

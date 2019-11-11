@@ -10,7 +10,9 @@ import {RegisterDto} from './dto/register.dto';
 import {InjectRepository} from '@nestjs/typeorm';
 import {ProfileEntity} from '../profile/entity/profile.entity';
 import {Repository} from 'typeorm';
-import * as requestIp from 'request-ip';
+import {checkIpInDB} from '../helpers/checkip-db.helper';
+import {MailerService} from '@nest-modules/mailer';
+import {getNewIpLetter} from '../helpers/newip-letter.helper';
 
 // import {UpdateEmployeeDto} from '../employee/dto/update-employee.dto';
 // import {UpdateUserDTO} from './dto/update-user.dto';
@@ -23,15 +25,23 @@ export class AuthService {
         private readonly jwtService: JwtService,
         @InjectRepository(ProfileEntity)
         private readonly profileRepository: Repository<ProfileEntity>,
+        private readonly mailerService: MailerService,
     ) {
     }
 
-    async login(userData: LoginDto) {
+    async login(userData: LoginDto, ip: number, agent: string, device: any) {
         try {
             const user = await this.userModel.findOne({email: userData.email});
             if (user) {
                 const comparePassword = bcrypt.compareSync(userData.password, user.password);
                 if (comparePassword) {
+                    if (!checkIpInDB(user, ip)) {
+                        this.mailerService.sendMail(getNewIpLetter(user, ip, agent, device))
+                            .catch(err => {
+                                Logger.log(`MAILER ERROR`);
+                                Logger.log(err);
+                            });
+                    }
                     const accessPayload: JwtPayload = {
                         id: user.id,
                         name: user.name,
@@ -48,7 +58,9 @@ export class AuthService {
                     });
                 }
             } else {
-                throw new NotFoundException();
+                throw new NotFoundException({
+                    message: `User not found`,
+                });
             }
         } catch (error) {
             throw new HttpException({
@@ -58,21 +70,22 @@ export class AuthService {
 
     }
 
-    async register(userData: RegisterDto) {
+    async register(userData: RegisterDto, ip: number) {
         try {
             Logger.log(userData);
             const newUser = await new this.userModel(userData);
+            await newUser.ip_address.push(ip);
             try {
-               const newProfile = await this.profileRepository.create({
-                   name: userData.name,
-                   email: userData.email,
-               });
-               await this.profileRepository.save(newProfile);
-           } catch (error) {
+                const newProfile = await this.profileRepository.create({
+                    name: userData.name,
+                    email: userData.email,
+                });
+                await this.profileRepository.save(newProfile);
+            } catch (error) {
                 throw new HttpException({
                     error,
                 }, 500);
-           }
+            }
             const resultUser = await newUser.save();
             return {
                 user: resultUser._id,
