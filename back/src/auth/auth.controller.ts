@@ -7,6 +7,8 @@ import {
     Req,
     UseGuards,
     Logger,
+    Get,
+    Param,
 } from '@nestjs/common';
 import {
     ApiCreatedResponse,
@@ -26,7 +28,7 @@ import {IpAddressCheck} from '../decorators/check-ip-adress.decorator';
 // import {UpdateUserDTO} from './dto/update-user.dto';
 
 @ApiUseTags('Auth controller')
-@Controller('/')
+@Controller('/auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) {
     }
@@ -40,6 +42,7 @@ export class AuthController {
     async Login(@Body() data: LoginDto, @IpAddressCheck() ip: number, @Req() req): Promise<object> {
         return  await this.authService.login(data, ip, req.headers['user-agent'].split(' ')[8], req.device.type);
     }
+
     @Post('/register')
     @ApiOperation({title: 'Register user'})
     @ApiCreatedResponse({description: 'User created successfully!'})
@@ -48,6 +51,15 @@ export class AuthController {
     async create(@Body() userData: RegisterDto,  @IpAddressCheck() ip: number): Promise<object> {
         return await this.authService.register(userData, ip);
 
+    }
+
+    @Get('/ip/:hash')
+    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
+    @ApiOperation({title: 'Add new Ip'})
+    @ApiResponse({status: 200, description: 'Ip added successfully'})
+    @HttpCode(200)
+    async getEmployees(@Param('hash') hash: string): Promise<any> {
+        return await this.authService.newIpUpdate(hash);
     }
 
     @Post('/user')

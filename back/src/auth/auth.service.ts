@@ -13,6 +13,8 @@ import {Repository} from 'typeorm';
 import {checkIpInDB} from '../helpers/checkip-db.helper';
 import {MailerService} from '@nest-modules/mailer';
 import {getNewIpLetter} from '../helpers/newip-letter.helper';
+import {IpUrl} from './interfaces/ip-url.interface';
+import {getHash} from '../helpers/hash-gen.helper';
 
 // import {UpdateEmployeeDto} from '../employee/dto/update-employee.dto';
 // import {UpdateUserDTO} from './dto/update-user.dto';
@@ -22,6 +24,8 @@ export class AuthService {
     constructor(
         @InjectModel('User')
         private readonly userModel: Model<User>,
+        @InjectModel('IpUrl')
+        private readonly ipUrlModel: Model<IpUrl>,
         private readonly jwtService: JwtService,
         @InjectRepository(ProfileEntity)
         private readonly profileRepository: Repository<ProfileEntity>,
@@ -36,11 +40,15 @@ export class AuthService {
                 const comparePassword = bcrypt.compareSync(userData.password, user.password);
                 if (comparePassword) {
                     if (!checkIpInDB(user, ip)) {
-                        this.mailerService.sendMail(getNewIpLetter(user, ip, agent, device))
+                        const cryptIp = getHash(15);
+                        const link = `${process.env.DEV_APP_URL}/ip/${cryptIp}`;
+                        const newIpUrl = await new this.ipUrlModel({hash: cryptIp, user: user._id, ip}).save();
+                        await this.mailerService.sendMail(getNewIpLetter(user, ip, agent, device, link))
                             .catch(err => {
                                 Logger.log(`MAILER ERROR`);
                                 Logger.log(err);
                             });
+
                     }
                     const accessPayload: JwtPayload = {
                         id: user.id,
@@ -72,7 +80,6 @@ export class AuthService {
 
     async register(userData: RegisterDto, ip: number) {
         try {
-            Logger.log(userData);
             const newUser = await new this.userModel(userData);
             await newUser.ip_address.push(ip);
             try {
@@ -101,6 +108,26 @@ export class AuthService {
         try {
             const userData: any = this.jwtService.decode(token);
             return this.userModel.findOne({_id: userData.id}, '-_id').exec();
+        } catch (error) {
+            throw new HttpException({
+                error,
+            }, 500);
+        }
+    }
+
+    async newIpUpdate(hash: string) {
+        const now = new Date();
+        const expiredParam = new Date(now.setHours(now.getHours() + +process.env.ID_NOTIFICATION_EXPIRED));
+        try {
+            const ipUrl = await this.ipUrlModel.findOne({hash, createdAt: {$lte: expiredParam}}).exec();
+            if (ipUrl) {
+                await this.userModel.updateOne({_id: ipUrl.user}, {$push: {ip_address: ipUrl.ip}}).exec();
+                await this.ipUrlModel.deleteOne({_id: ipUrl._id}).exec();
+                return `Ip pushed to user's ip`;
+            } else {
+                await this.ipUrlModel.deleteOne({hash}).exec();
+                return `Link is expired`;
+            }
         } catch (error) {
             throw new HttpException({
                 error,

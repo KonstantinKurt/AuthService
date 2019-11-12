@@ -24,4 +24,5 @@ import mongo from './config/mongo';
     providers: [],
 })
 export class AppModule {
+
 }
