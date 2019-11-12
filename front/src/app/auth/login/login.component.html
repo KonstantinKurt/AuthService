@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <form class="form col-md-4 formStyle" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <form class="form col-md-4 form-style" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <h2 class="mt-2" style="text-align: center">Login</h2>
             <div class="form-group m-1" [ngClass]="{
               'invalid': email.invalid && email.dirty || validated === false,

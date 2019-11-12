@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <form novalidate class="form col-md-4 formStyle" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <form novalidate class="form col-md-4 form-style" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
             <h2 class="mt-2" style="text-align: center">Register</h2>
             <div class="form-group" [ngClass]="{
             'invalid': name.invalid && name.dirty || validated === false,
@@ -47,6 +47,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-outline-info float-right m-1 ">Submit</button>
+            {{response | json}}
         </form>
     </div>
 </div>

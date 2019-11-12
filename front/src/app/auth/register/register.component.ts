@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {confirmPasswordValidator} from '../../helpers/confirm-password-validator';
+import {RegisterService} from './register.service';
+import {User} from './model/user.model';
+import {Observable} from 'rxjs';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-register',
@@ -17,13 +21,18 @@ export class RegisterComponent implements OnInit {
     private confirmPassword: FormControl;
     private email: FormControl;
     private validated: boolean;
-
-    constructor() {
+    private user: User;
+    private response: any;
+    constructor(
+        private registerService: RegisterService,
+        private router: Router,
+    ) {
     }
 
     ngOnInit() {
         this.createFormControls();
         this.createForm();
+        this.user = new User();
     }
 
      createFormControls() {
@@ -57,12 +66,26 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         if (this.registrationForm.invalid) {
-            alert(`invalid`);
             this.validated = false;
             return;
         } else {
             this.validated = true;
-            console.log(this.registrationForm.value);
+
+            this.user.name = this.name.value;
+            this.user.password = this.password.value;
+            this.user.email = this.email.value;
+            const response = this.registerService.register(this.user);
+            response.subscribe(
+                (next: Observable<object>) => {
+                    console.log(next);
+                    // this.registerService.createdUserName.subscribe(userName => this.user.name);
+                    this.registerService.userNameSource.next(this.user.name);
+                    this.router.navigateByUrl('/auth/successful');
+                },
+                (err) => {
+                    console.log(err);
+                });
         }
     }
+
 }

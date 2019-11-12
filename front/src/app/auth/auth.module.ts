@@ -9,12 +9,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NavbarModule} from '../navbar/navbar.module';
 import {RegisterService} from './register/register.service';
 import {RegisterResource} from './register/register.resource';
+import {HttpClientModule} from '@angular/common/http';
+import {SuccessfulComponent} from './successful/successful.component';
 
 
 @NgModule({
     declarations: [
         LoginComponent,
         RegisterComponent,
+        SuccessfulComponent,
     ],
     imports: [
         CommonModule,
@@ -22,6 +25,7 @@ import {RegisterResource} from './register/register.resource';
         AuthRoutingModule,
         NavbarModule,
         ReactiveFormsModule,
+        HttpClientModule,
     ],
     providers: [
         LoginService,
