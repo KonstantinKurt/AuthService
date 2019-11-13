@@ -4,8 +4,6 @@ import {RegisterService} from '../register/register.service';
 import {Router} from '@angular/router';
 import {User} from '../register/model/user.model';
 import {LoginService} from './login.service';
-import {Observable} from 'rxjs';
-import {HttpResponse} from "@angular/common/http";
 
 @Component({
     selector: 'app-login',
@@ -18,7 +16,6 @@ export class LoginComponent implements OnInit {
     private password: FormControl;
     private validated: boolean;
     private user: User;
-    private responseObject: object;
 
     constructor(
         private loginService: LoginService,
@@ -64,7 +61,7 @@ export class LoginComponent implements OnInit {
                 .subscribe(
                 (next: any) => {
                     console.log(next);
-                    localStorage.setItem('token', next.body.access_token);
+                    localStorage.setItem('auth_token', next.body.access_token);
                     this.router.navigateByUrl('/Profile/edit');
                 },
                 (err) => {

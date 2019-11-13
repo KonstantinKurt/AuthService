@@ -1,27 +1,28 @@
 import {Injectable} from '@angular/core';
-import {environment} from '../../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {LoginDTO} from './dto/login.dto';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
-export class LoginResource {
-    private readonly hostUrl = `${environment.hostUrl}auth/login`;
+export class ProfileEditResource {
+    private readonly hostUrl = `${environment.hostUrl}profile`;
     private readonly httpOptions: object;
-
+    private readonly token: string;
     constructor(
         private httpClient: HttpClient,
     ) {
         this.httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type':  'application/json',
-
+                authorization: this.token,
             }),
             observe: 'response',
 
         };
+        this.token = localStorage.getItem('auth_token');
     }
-    login(loginData: LoginDTO): Observable<object> {
-        return this.httpClient.post<object>(this.hostUrl, loginData, this.httpOptions);
+
+    getCurrentProfile(): Observable<object> {
+        return this.httpClient.get<object>(this.hostUrl, this.httpOptions);
     }
 }

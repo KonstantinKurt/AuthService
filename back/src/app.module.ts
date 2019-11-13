@@ -8,6 +8,7 @@ import * as path from 'path';
 import {typeOrm} from './config/typeorm';
 import transport from './config/transport';
 import mongo from './config/mongo';
+import {ProfileModule} from './profile/profile.module';
 
 @Module({
     imports: [
@@ -19,6 +20,7 @@ import mongo from './config/mongo';
             transport: transport.options,
         }),
         AuthModule,
+        ProfileModule,
     ],
     controllers: [],
     providers: [],

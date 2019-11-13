@@ -51,7 +51,7 @@ export class AuthService {
 
                     }
                     const accessPayload: JwtPayload = {
-                        id: user.id,
+                        user: user.id,
                         name: user.name,
                         expires_in: process.env.AUTH_TOKEN_EXPIRES_IN,
                     };
@@ -86,6 +86,7 @@ export class AuthService {
                 const newProfile = await this.profileRepository.create({
                     name: userData.name,
                     email: userData.email,
+                    user: newUser._id,
                 });
                 await this.profileRepository.save(newProfile);
             } catch (error) {
@@ -97,17 +98,6 @@ export class AuthService {
             return {
                 user: resultUser._id,
             };
-        } catch (error) {
-            throw new HttpException({
-                error,
-            }, 500);
-        }
-    }
-
-    async getUserByToken(token: string) {
-        try {
-            const userData: any = this.jwtService.decode(token);
-            return this.userModel.findOne({_id: userData.id}, '-_id').exec();
         } catch (error) {
             throw new HttpException({
                 error,

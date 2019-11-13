@@ -6,7 +6,7 @@ import {
 import {ProfileEditComponent} from './profile-edit/profile-edit.component';
 const routes: Routes = [
     {
-        path: 'edit',
+        path: '',
         component: ProfileEditComponent,
     },
 ];

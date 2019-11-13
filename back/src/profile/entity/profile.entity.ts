@@ -19,6 +19,12 @@ export class ProfileEntity extends BaseEntity {
     @Column('text')
     email: string;
 
+    @Column('text')
+    user: string;
+
+    @Column('text')
+    avatar: string;
+
     @CreateDateColumn()
     createdAt: string;
 }

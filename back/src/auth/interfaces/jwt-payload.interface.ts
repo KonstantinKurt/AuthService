@@ -1,5 +1,5 @@
 export interface JwtPayload {
-    id: string;
+    user: string;
     name: string;
     expires_in: string;
 }
