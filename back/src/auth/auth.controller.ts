@@ -28,7 +28,7 @@ import {IpAddressCheck} from '../decorators/check-ip-adress.decorator';
 // import {UpdateUserDTO} from './dto/update-user.dto';
 
 @ApiUseTags('Auth controller')
-@Controller('/auth')
+@Controller('/Auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) {
     }

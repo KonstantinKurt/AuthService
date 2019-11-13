@@ -6,6 +6,9 @@ import {AppComponent} from './app.component';
 import {NavbarModule} from './navbar/navbar.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AboutModule} from './about/about.module';
+import {AuthGuard} from './_guards/auth.guard';
+import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
+import {UnauthorizedModule} from './unauthorized/unauthorized.module';
 
 @NgModule({
     declarations: [
@@ -17,8 +20,13 @@ import {AboutModule} from './about/about.module';
         NavbarModule,
         ReactiveFormsModule,
         AboutModule,
+        UnauthorizedModule,
+        JwtModule.forRoot({}),
     ],
-    providers: [],
+    providers: [
+        AuthGuard,
+        JwtHelperService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

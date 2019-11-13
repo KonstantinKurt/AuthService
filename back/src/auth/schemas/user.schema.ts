@@ -33,7 +33,7 @@ export const UserSchema = new mongoose.Schema({
     });
 UserSchema.plugin(uniqueValidator);
 
-UserSchema.pre('save', function (next) {
-    this.password = bcrypt.hash(this.password, +process.env.USER_PASSWORD_SALT);
+UserSchema.pre('save', function(next) {
+    this.password = bcrypt.hashSync(this.password, +process.env.USER_PASSWORD_SALT);
     next();
 });

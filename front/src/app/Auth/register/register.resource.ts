@@ -3,6 +3,7 @@ import {environment} from '../../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {RegisterDTO} from './dto/register.dto';
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class RegisterResource {
@@ -23,8 +24,7 @@ export class RegisterResource {
         }
 
     register(registerData: RegisterDTO): Observable<object> {
-        console.log('Resource', this.hostUrl);
-        console.log('ResourceData', registerData);
         return this.httpClient.post<object>(this.hostUrl, registerData, this.httpOptions);
+            //.pipe(catchError((err) => console.log(err)));
     }
 }

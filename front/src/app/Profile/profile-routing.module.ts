@@ -3,14 +3,12 @@ import {
     RouterModule,
     Routes,
 } from '@angular/router';
-import {AboutComponent} from './about.component';
-
+import {ProfileEditComponent} from './profile-edit/profile-edit.component';
 const routes: Routes = [
     {
-        path: '',
-        component: AboutComponent,
+        path: 'edit',
+        component: ProfileEditComponent,
     },
-
 ];
 
 @NgModule({
@@ -21,5 +19,5 @@ const routes: Routes = [
         RouterModule,
     ]
 })
-export class AboutRoutingModule {
+export class ProfileRoutingModule {
 }

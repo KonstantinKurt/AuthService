@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {confirmPasswordValidator} from '../../helpers/confirm-password-validator';
+import {confirmPasswordValidator} from '../../_helpers/confirm-password-validator';
 import {RegisterService} from './register.service';
 import {User} from './model/user.model';
 import {Observable} from 'rxjs';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -76,11 +76,10 @@ export class RegisterComponent implements OnInit {
             this.user.email = this.email.value;
             const response = this.registerService.register(this.user);
             response.subscribe(
-                (next: Observable<object>) => {
+                (next) => {
                     console.log(next);
-                    // this.registerService.createdUserName.subscribe(userName => this.user.name);
                     this.registerService.userNameSource.next(this.user.name);
-                    this.router.navigateByUrl('/auth/successful');
+                    this.router.navigateByUrl('/Auth/successful');
                 },
                 (err) => {
                     console.log(err);

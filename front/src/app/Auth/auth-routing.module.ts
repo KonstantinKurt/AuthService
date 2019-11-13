@@ -19,7 +19,7 @@ const routes: Routes = [
     {
         path: 'successful',
         component: SuccessfulComponent
-    }
+    },
 ];
 
 @NgModule({

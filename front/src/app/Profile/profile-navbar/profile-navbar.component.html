@@ -1,0 +1,40 @@
+<!--<nav class="navbar navbar-expand-lg navbar-light navbarColor">-->
+<!--    <a class="navbar-brand" href="#">{{currentUser}}</a>-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">-->
+<!--        <ul class="navbar-nav mr-auto">-->
+<!--            <li class="nav-item active ml-3">-->
+<!--                <a  routerLink="/Profile/edit"   class="btn btn-outline-warning btn-lg mr-sm-1 navbarButton" role="button" aria-pressed="true">Edit</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item ml-3">-->
+<!--                <a  routerLink="/Auth/login"   class="btn btn-outline-info btn-lg mr-sm-1 navbarButton" role="button" aria-pressed="true">Articles</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item ml-3">-->
+<!--                <a  routerLink="/Auth/login"   class="btn btn-outline-success btn-lg mr-sm-1 navbarButton" role="button" aria-pressed="true">Chat</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--        <form class="form-inline my-2 my-lg-0">-->
+<!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--            <button class="btn btn-outline-info my-2 my-sm-0 m-1" type="submit">Search</button>-->
+<!--            <button class="btn btn-outline-info my-2 my-sm-0" type="button" (click)="logout()">Logout</button>-->
+
+<!--        </form>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<nav class="navbar navbar-light navbarColor">
+    <a class="navbar-brand" href="#">{{currentUser}}</a>
+    <form class="form-inline ">
+        <a  routerLink="/profile/edit" class="btn btn-outline-warning btn-lg mr-sm-1 navbarButton" role="button" aria-pressed="true">Edit</a>
+        <a  routerLink="/auth/login"   class="btn btn-outline-info btn-lg mr-sm-1 navbarButton" role="button" aria-pressed="true">Articles</a>
+        <a  routerLink="/auth/login"   class="btn btn-outline-success btn-lg mr-sm-1 navbarButton" role="button" aria-pressed="true">Chat</a>
+    </form>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-info my-2 my-sm-0 m-1" type="submit">Search</button>
+        <button class="btn btn-outline-info my-2 my-sm-0" type="button" (click)="logout()">Logout</button>
+
+    </form>
+</nav>
