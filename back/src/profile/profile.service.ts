@@ -38,9 +38,10 @@ export class ProfileService {
     async setAvatar(token: string, avatarId: string) {
         try {
             const userData: any = await this.jwtService.decode(token);
+            const serveUrl = `http://localhost:7000/profile/avatar/${avatarId}`;
             const result = await this.profileRepository.update(
                 {user: userData.id},
-                {avatar: avatarId},
+                {avatar: serveUrl},
             );
             if (!result) {
                 throw new NotFoundException({

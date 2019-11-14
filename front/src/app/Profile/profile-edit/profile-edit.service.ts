@@ -14,4 +14,8 @@ export class ProfileEditService {
     getCurrentProfile(): Observable<object> {
        return this.profileEditResource.getCurrentProfile();
     }
+
+    getAvatar(id: string): Observable<object> {
+        return this.profileEditResource.getAvatar(id);
+    }
 }

@@ -9,6 +9,7 @@ import {
 import {
     IsDefined,
 } from 'class-validator';
+import {Exclude} from 'class-transformer';
 
 @Entity('Profile')
 @Unique(['email'])
@@ -26,14 +27,16 @@ export class ProfileEntity extends BaseEntity {
 
     @Column('text')
     @IsDefined()
+    @Exclude()
     user: string;
 
     @Column({
         type: 'text',
-        default: '',
+        default: 'default_avatar.jpg',
     })
     avatar: string;
 
     @CreateDateColumn()
+    @Exclude()
     createdAt: string;
 }

@@ -59,7 +59,7 @@ export class ProfileController {
     }
 
     @Get('/avatar/:id')
-    @UseGuards(AuthGuard('jwt'))
+    // @UseGuards(AuthGuard('jwt'))
     @ApiBearerAuth()
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
     @ApiOperation({title: 'Get profile avatar'})

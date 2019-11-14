@@ -7,6 +7,7 @@ import {environment} from '../../../environments/environment';
 export class ProfileEditResource {
     private readonly hostUrl = `${environment.hostUrl}profile`;
     private readonly httpOptions: object;
+
     private readonly token: string;
     constructor(
         private httpClient: HttpClient,
@@ -22,5 +23,8 @@ export class ProfileEditResource {
 
     getCurrentProfile(): Observable<object> {
         return this.httpClient.get<object>(this.hostUrl, this.httpOptions);
+    }
+    getAvatar(id: string): Observable<object> {
+        return this.httpClient.get<object>(`${this.hostUrl}/avatar/${id}`);
     }
 }

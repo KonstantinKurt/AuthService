@@ -10,6 +10,8 @@ import {Profile} from './model/profile.model';
 })
 export class ProfileEditComponent implements OnInit {
     private profile: Profile;
+    private avatar: any;
+
     constructor(
         private profileEditService: ProfileEditService,
         private router: Router,
@@ -25,12 +27,28 @@ export class ProfileEditComponent implements OnInit {
         this.profileEditService.getCurrentProfile()
             .subscribe(
                 (next: any) => {
-                    console.log(next);
+                    this.profile = next;
+                    console.log(this.profile);
+                    },
+                (err) => {
+                    console.log('22222222222222222222222222222222', err);
+                });
+    }
+
+    getAvatar(id: string) {
+        this.profileEditService.getAvatar(id)
+            .subscribe(
+                (next: any) => {
+                    console.log('next', next);
+                    this.avatar = next;
+                    console.log('Avatar', this.avatar);
 
                 },
                 (err) => {
-                    console.log(err);
+                    console.log('!!!!!!!!!!!!!!!!!!', err);
                 });
     }
+
+
 
 }
