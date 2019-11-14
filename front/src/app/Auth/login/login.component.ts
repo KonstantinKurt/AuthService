@@ -56,13 +56,11 @@ export class LoginComponent implements OnInit {
             delete this.user.name;
             this.user.email = this.email.value;
             this.user.password = this.password.value;
-            console.log(this.user);
             this.loginService.login(this.user)
                 .subscribe(
                 (next: any) => {
-                    console.log(next);
                     localStorage.setItem('auth_token', next.body.access_token);
-                    this.router.navigateByUrl('/Profile/edit');
+                    this.router.navigateByUrl('/profile');
                 },
                 (err) => {
                     console.log(err);

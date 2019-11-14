@@ -11,15 +11,13 @@ export class ProfileEditResource {
     constructor(
         private httpClient: HttpClient,
     ) {
-        this.httpOptions = {
-            headers: new HttpHeaders({
-                'Content-Type':  'application/json',
-                authorization: this.token,
-            }),
-            observe: 'response',
-
-        };
         this.token = localStorage.getItem('auth_token');
+        this.httpOptions = {
+             headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                authorization: this.token
+            }),
+        };
     }
 
     getCurrentProfile(): Observable<object> {

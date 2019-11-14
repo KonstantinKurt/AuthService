@@ -6,11 +6,16 @@ import {
     Unique,
     CreateDateColumn,
 } from 'typeorm';
+import {
+    IsDefined,
+} from 'class-validator';
 
 @Entity('Profile')
 @Unique(['email'])
 export class ProfileEntity extends BaseEntity {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn({
+        type: 'uuid',
+    })
     id: string;
 
     @Column('text')
@@ -20,9 +25,13 @@ export class ProfileEntity extends BaseEntity {
     email: string;
 
     @Column('text')
+    @IsDefined()
     user: string;
 
-    @Column('text')
+    @Column({
+        type: 'text',
+        default: '',
+    })
     avatar: string;
 
     @CreateDateColumn()

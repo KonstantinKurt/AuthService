@@ -23,7 +23,7 @@ export class RegisterDto {
         },
     )
     @IsNotEmpty()
-    @Length(4, 20)
+    @Length(8, 20)
     readonly password: string;
 
     @ApiModelProperty()

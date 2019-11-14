@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
                 (next) => {
                     console.log(next);
                     this.registerService.userNameSource.next(this.user.name);
-                    this.router.navigateByUrl('/Auth/successful');
+                    this.router.navigateByUrl('/auth/successful');
                 },
                 (err) => {
                     console.log(err);

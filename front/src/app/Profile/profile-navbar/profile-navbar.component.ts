@@ -22,6 +22,6 @@ export class ProfileNavbarComponent implements OnInit {
 
     logout() {
         localStorage.clear();
-        this.router.navigateByUrl('Auth/login');
+        this.router.navigateByUrl('auth/login');
     }
 }

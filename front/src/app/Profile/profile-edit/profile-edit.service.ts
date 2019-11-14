@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ProfileEditResource} from './profile-edit.resource';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'

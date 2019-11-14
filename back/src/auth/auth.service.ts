@@ -51,7 +51,7 @@ export class AuthService {
 
                     }
                     const accessPayload: JwtPayload = {
-                        user: user.id,
+                        id: user._id,
                         name: user.name,
                         expires_in: process.env.AUTH_TOKEN_EXPIRES_IN,
                     };
@@ -83,10 +83,11 @@ export class AuthService {
             const newUser = await new this.userModel(userData);
             await newUser.ip_address.push(ip);
             try {
+                Logger.log(`!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ${newUser._id}`);
                 const newProfile = await this.profileRepository.create({
                     name: userData.name,
                     email: userData.email,
-                    user: newUser._id,
+                    user: newUser._id.toString(),
                 });
                 await this.profileRepository.save(newProfile);
             } catch (error) {

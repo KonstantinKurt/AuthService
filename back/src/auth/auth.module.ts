@@ -7,12 +7,13 @@ import {AuthController} from './auth.controller';
 import {AuthService} from './auth.service';
 import {MongooseModule} from '@nestjs/mongoose';
 import {UserSchema} from './schemas/user.schema';
-import {JwtModule} from '@nestjs/jwt';
+import {JwtModule, JwtService} from '@nestjs/jwt';
 import {PassportModule} from '@nestjs/passport';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {ProfileEntity} from '../profile/entity/profile.entity';
 import {IpUrlSchema} from './schemas/ip-url.schema';
 import {LoggerMiddleware} from '../middlewares/logger.middleware';
+import {JwtStrategy} from './strategy/jwt.strategy';
 
 @Module({
     imports: [
@@ -41,7 +42,15 @@ import {LoggerMiddleware} from '../middlewares/logger.middleware';
         }),
     ],
     controllers: [AuthController],
-    providers: [AuthService],
+    providers: [
+        AuthService,
+        JwtStrategy,
+    ],
+    exports: [
+        PassportModule,
+        JwtStrategy,
+        JwtModule,
+    ],
 })
 export class AuthModule {
     configure(consumer: MiddlewareConsumer) {

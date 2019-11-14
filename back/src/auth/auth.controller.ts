@@ -62,18 +62,18 @@ export class AuthController {
         return await this.authService.newIpUpdate(hash);
     }
 
-    @Post('/user')
-    @UseGuards(AuthGuard('jwt'))
-    @ApiBearerAuth()
-    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
-    @ApiResponse({status: 200, description: 'User found successfully!'})
-    @ApiNotFoundResponse({description: 'User not found!'})
-    @ApiOperation({title: 'Get user by token decoded data'})
-    @HttpCode(200)
-    async getProfileByToken(@Req() req): Promise<object> {
-        const token = req.header(`authorization`).split(' ')[1];
-        return this.authService.getUserByToken(token);
-    }
+    // @Post('/user')
+    // @UseGuards(AuthGuard('jwt'))
+    // @ApiBearerAuth()
+    // @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
+    // @ApiResponse({status: 200, description: 'User found successfully!'})
+    // @ApiNotFoundResponse({description: 'User not found!'})
+    // @ApiOperation({title: 'Get user by token decoded data'})
+    // @HttpCode(200)
+    // async getProfileByToken(@Req() req): Promise<object> {
+    //     const token = req.header(`authorization`).split(' ')[1];
+    //     return this.authService.getUserByToken(token);
+    // }
 
     // @Put('/user')
     // @UseGuards(AuthGuard('jwt'))
