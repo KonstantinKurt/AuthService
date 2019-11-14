@@ -21,11 +21,36 @@ export class ProfileService {
     async getCurrentProfile(token: string) {
         try {
             const userData: any = await this.jwtService.decode(token);
-            const result = await this.profileRepository.findOne({where: {user: userData.id}});
+            const result = await this.profileRepository.findOne({user: userData.id});
             if (!result) {
-               throw new NotFoundException();
+                throw new NotFoundException({
+                    message: `wrong token data`,
+                });
             }
             return result;
+        } catch (error) {
+            throw new HttpException({
+                error,
+            }, 400);
+        }
+    }
+
+    async setAvatar(token: string, avatarId: string) {
+        try {
+            const userData: any = await this.jwtService.decode(token);
+            const result = await this.profileRepository.update(
+                {user: userData.id},
+                {avatar: avatarId},
+            );
+            if (!result) {
+                throw new NotFoundException({
+                    message: `wrong token data`,
+                });
+            }
+            return {
+                result,
+                avatarId,
+            };
         } catch (error) {
             throw new HttpException({
                 error,

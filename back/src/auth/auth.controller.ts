@@ -5,7 +5,6 @@ import {
     Post,
     Put,
     Req,
-    UseGuards,
     Logger,
     Get,
     Param,
@@ -15,20 +14,18 @@ import {
     ApiInternalServerErrorResponse,
     ApiUseTags,
     ApiOperation,
-    ApiBearerAuth,
     ApiResponse,
     ApiNotFoundResponse,
 } from '@nestjs/swagger';
 import {AuthService} from './auth.service';
 import {LoginDto} from './dto/login.dto';
 import {RegisterDto} from './dto/register.dto';
-import {AuthGuard} from '@nestjs/passport';
 import {IpAddressCheck} from '../decorators/check-ip-adress.decorator';
 // import {UpdateEmployeeDto} from '../employee/dto/update-employee.dto';
 // import {UpdateUserDTO} from './dto/update-user.dto';
 
 @ApiUseTags('Auth controller')
-@Controller('/Auth')
+@Controller('/auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) {
     }
