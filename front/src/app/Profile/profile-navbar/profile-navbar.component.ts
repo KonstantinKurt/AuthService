@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
     ]
 })
 export class ProfileNavbarComponent implements OnInit {
-    private currentUser = 'TEST';
+    private user = 'TEST';
+    private avatar = 'http://localhost:7000/profile/avatar/default_avatar.jpg';
 
     constructor(
         private router: Router,

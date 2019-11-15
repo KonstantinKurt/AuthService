@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   hostUrl: `http://localhost:7000/`,
+  avatarServeUrl: `http://localhost:7000/profile/avatar/`,
 };
 
 /*
