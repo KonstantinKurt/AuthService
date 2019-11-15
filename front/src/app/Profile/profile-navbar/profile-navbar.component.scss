@@ -7,43 +7,41 @@ body {
   padding: 0;
 }
 
+nav {
+  height: 100px;
+  width: 100%;
+  max-width: 1920px;
+  padding: 5px auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: solid 2px #52a8ff;
+  background-color: #e1eff5;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #3A3939;
+}
+
 .left {
-  width: 15%;
+  width: 10%;
   display: flex;
   padding: 0 auto;
   margin: 0 auto;
+  align-items: center;
+}
+
+.middle {
+  width: 30%;
+  display: flex;
   align-items: center;
 }
 
 .right {
-  width: 55%;
+  width: 60%;
   display: flex;
   padding: 0 auto;
   margin: 0 auto;
   align-items: center;
-}
-.name-container{
-  width: 30%;
-  display: flex;
-  align-items: center;
-}
-
-.control-buttons {
-  width: 30%;
-  height: 50px;
-  margin: 5px;
-}
-
-.logout-container {
-  width: 30%;
-  display: flex;
-  justify-content: flex-end;
-
-}
-.logout-button{
-  width: 40%;
-  height: 50px;
-  margin: 5px;
 }
 
 .button-container {
@@ -52,23 +50,111 @@ body {
   align-items: center;
 }
 
-nav {
-  height: 120px;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 1920px;
-  padding: 5px auto;
-  margin: 0 auto;
+.logout-container {
+  width: 30%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  justify-content: flex-end;
+
+}
+
+.control-buttons {
+  width: 35%;
+  height: 50px;
+  margin: 5px;
+  border: solid 2px #52a8ff;
+  border-radius: 5px;
+  color: grey;
+  font-size: 22px;
+}
+
+.profile {
+  background-color: #fdffca;
+  transition: 0.3s;
+  outline: none;
+
+}
+
+.profile:hover {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  background-color: gold;
+  border: 2px solid blue;
+  color: black;
+}
+
+.profile:active {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  border: inset;
+}
+
+.articles {
+  background-color: #CCFCC5;
+  transition: 0.3s;
+  outline: none;
+}
+
+.articles:hover {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  background-color: #2FC218;
+  border: 2px solid blue;
+  color: black;
+}
+
+.articles:active {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  border: inset;
+}
+
+.chat {
+  background-color: #f1d5fc;
+  transition: 0.3s;
+  outline: none;
+}
+
+.chat:hover {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  background-color: #b264c2;
+  border: 2px solid blue;
+  color: black;
+}
+
+.chat:active {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  border: inset;
+}
+
+
+.logout-button {
+  width: 40%;
+  height: 50px;
+  margin: 5px;
+  border: solid 2px #52a8ff;
+  border-radius: 5px;
+  color: grey;
+  font-size: 16px;
+}
+.logout {
+  background-color: #DDE1DD;
+  transition: 0.3s;
+  outline: none;
+}
+
+.logout:hover {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  background-color: #717371;
+  border: 2px solid blue;
+  color: black;
+}
+
+.logout:active {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  border: inset;
 }
 
 .image-div {
-  margin-left: 1%;
+  margin-left: 3%;
   margin-right: 3%;
   width: 100%;
-  max-width: 100px;
+  max-width: 80px;
 }
 
 img {
@@ -76,6 +162,7 @@ img {
   object-fit: cover;
   width: 100%;
 }
-p{
+
+p {
   font-size: 20px;
 }

@@ -19,17 +19,19 @@
             <!--                <img src="Client-server.jpg">-->
         </div>
     </div>
-    <div class="name-container">
-        <p>{{user}}</p>
+    <div class="middle">
+        <div>
+            <p>  {{user}}</p>
+        </div>
     </div>
     <div class="right">
         <div class="button-container">
-            <button class="control-buttons">Edit</button>
-            <button class="control-buttons">Articles</button>
-            <button class="control-buttons">Chat</button>
+            <button class="control-buttons profile" (click)="profileRedirect()">Profile</button>
+            <button class="control-buttons articles" (click)="articlesRedirect()">Articles</button>
+            <button class="control-buttons chat" (click)="chatRedirect()">Chat</button>
         </div>
         <div class="logout-container">
-            <button class="logout-button">Logout</button>
+            <button class="logout-button logout" (click)="logout()">Logout</button>
         </div>
     </div>
 </nav>

@@ -25,4 +25,16 @@ export class ProfileNavbarComponent implements OnInit {
         localStorage.clear();
         this.router.navigateByUrl('auth/login');
     }
+
+    profileRedirect() {
+        this.router.navigateByUrl('/profile');
+    }
+
+    articlesRedirect(){
+        this.router.navigateByUrl('/');
+    }
+
+    chatRedirect(){
+        this.router.navigateByUrl('/');
+    }
 }
