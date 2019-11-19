@@ -4,7 +4,6 @@ import {
     Routes,
 } from '@angular/router';
 import {ProfileEditComponent} from './profile-edit/profile-edit.component';
-import {AuthGuard} from '../_guards/auth.guard';
 const routes: Routes = [
     {
         path: '',

@@ -6,7 +6,6 @@ import {Router} from '@angular/router';
     templateUrl: './profile-navbar.component.html',
     styleUrls: [
         './profile-navbar.component.scss',
-        '../../navbar/navbar.component.scss'
     ]
 })
 export class ProfileNavbarComponent implements OnInit {
@@ -26,15 +25,5 @@ export class ProfileNavbarComponent implements OnInit {
         this.router.navigateByUrl('auth/login');
     }
 
-    profileRedirect() {
-        this.router.navigateByUrl('/profile');
-    }
 
-    articlesRedirect(){
-        this.router.navigateByUrl('/');
-    }
-
-    chatRedirect(){
-        this.router.navigateByUrl('/');
-    }
 }

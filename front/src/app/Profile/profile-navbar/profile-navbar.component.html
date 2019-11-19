@@ -1,38 +1,44 @@
-<!--<nav class="navbar navbar-light navbarColor">-->
-<!--    <a class="navbar-brand" href="#">{{currentUser}}</a>-->
-<!--    <form class="form-inline ">-->
-<!--        <a  routerLink="/profile/edit" class="btn btn-outline-warning btn-lg mr-sm-1 navbarButton" role="button" aria-pressed="true">Edit</a>-->
-<!--        <a  routerLink="/auth/login"   class="btn btn-outline-info btn-lg mr-sm-1 navbarButton" role="button" aria-pressed="true">Articles</a>-->
-<!--        <a  routerLink="/auth/login"   class="btn btn-outline-success btn-lg mr-sm-1 navbarButton" role="button" aria-pressed="true">Chat</a>-->
-<!--    </form>-->
-<!--    <form class="form-inline my-2 my-lg-0">-->
-<!--        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--        <button class="btn btn-outline-info my-2 my-sm-0 m-1" type="submit">Search</button>-->
-<!--        <button class="btn btn-outline-info my-2 my-sm-0" type="button" (click)="logout()">Logout</button>-->
-
-<!--    </form>-->
+<!--<nav>-->
+<!--    <div class="left">-->
+<!--        <div class="image-div">-->
+<!--            <img src="{{avatar}}" class="">-->
+<!--            &lt;!&ndash;                <img src="Client-server.jpg">&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="middle">-->
+<!--        <div>-->
+<!--            <p>  {{user}}</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="right">-->
+<!--        <div class="button-container">-->
+<!--            <button class="control-buttons profile" (click)="profileRedirect()">Profile</button>-->
+<!--            <button class="control-buttons articles" (click)="articlesRedirect()">Articles</button>-->
+<!--            <button class="control-buttons chat" (click)="chatRedirect()">Chat</button>-->
+<!--        </div>-->
+<!--        <div class="logout-container">-->
+<!--            <button class="logout-button logout" (click)="logout()">Logout</button>-->
+<!--        </div>-->
+<!--    </div>-->
 <!--</nav>-->
+
 <nav>
-    <div class="left">
-        <div class="image-div">
-            <img src="{{avatar}}" class="">
-            <!--                <img src="Client-server.jpg">-->
+    <div class="avatar-container">
+        <div class="avatar">
+            <img src="{{avatar}}">
+        </div>
+        <div class="name">
+            <p>{{user}}</p>
         </div>
     </div>
-    <div class="middle">
-        <div>
-            <p>  {{user}}</p>
+    <div class="buttons-container">
+        <div class="control-buttons">
+            <a href="/profile" class="button" >Profile</a>
+            <a href="/test" class="button">Articles</a>
+            <a href="/test" class="button">Chat</a>
         </div>
-    </div>
-    <div class="right">
-        <div class="button-container">
-            <button class="control-buttons profile" (click)="profileRedirect()">Profile</button>
-            <button class="control-buttons articles" (click)="articlesRedirect()">Articles</button>
-            <button class="control-buttons chat" (click)="chatRedirect()">Chat</button>
-        </div>
-        <div class="logout-container">
-            <button class="logout-button logout" (click)="logout()">Logout</button>
+        <div class="logout-button">
+            <button class="button" (click)="logout()" >LogOut</button>
         </div>
     </div>
 </nav>
-

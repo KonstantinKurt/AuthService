@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {AuthGuard} from './_guards/auth.guard';
 import {UnauthorizedComponent} from './unauthorized/unauthorized.component';
 import {AboutComponent} from './about/about.component';
+import {TestMarkupComponent} from './test-markup/test-markup.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'unauthorized',
         component: UnauthorizedComponent,
+    },
+    {
+        path: 'test',
+        component: TestMarkupComponent,
     },
     {
         path: 'profile',
