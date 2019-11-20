@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {NavbarModule} from './navbar/navbar.module';
+import {NavbarModule} from './auth-navbar/navbar.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AboutModule} from './about/about.module';
 import {AuthGuard} from './_guards/auth.guard';

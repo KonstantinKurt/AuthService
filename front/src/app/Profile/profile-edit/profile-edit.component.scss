@@ -1,3 +1,22 @@
-.photo-wrapper{
-  min-height: 300px;
+.fullsize-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1 1 100%;
+}
+
+.data-container {
+  height: auto;
+  border: solid 2px #52a8ff;
+  background-color: #e1eff5;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #3A3939;
+  flex-grow: 1;
+  margin: 0 5px 5px 0;
+
 }
