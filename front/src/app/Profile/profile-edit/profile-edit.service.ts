@@ -9,13 +9,15 @@ export class ProfileEditService {
 
     constructor(
         private profileEditResource: ProfileEditResource
-    ) {}
+    ) {
+    }
 
     getCurrentProfile(): Observable<object> {
-       return this.profileEditResource.getCurrentProfile();
+        return this.profileEditResource.getCurrentProfile();
     }
 
-    getAvatar(id: string): Observable<object> {
-        return this.profileEditResource.getAvatar(id);
+    setAvatar(uploadData: FormData): Observable<object> {
+        return this.profileEditResource.setAvatar(uploadData);
     }
+
 }

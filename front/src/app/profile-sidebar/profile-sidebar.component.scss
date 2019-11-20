@@ -1,13 +1,13 @@
 .sidebar-container {
-  width: 250px;
+  display: flex;
+  width: 220px;
   border: solid 2px #52a8ff;
   background-color: #e1eff5;
   border-radius: 5px;
   height: 300px;
   box-shadow: 5px 5px 5px #3A3939;
-  align-items: center;
   margin:0 20px 0 5px;
-
+  align-content: center;
   ul {
     margin-top: 20px;
     margin-left: 10px;

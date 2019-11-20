@@ -7,15 +7,21 @@ import {environment} from '../../../environments/environment';
 export class ProfileEditResource {
     private readonly hostUrl = `${environment.hostUrl}profile`;
     private readonly httpOptions: object;
-
+    private readonly httpOptionsFormData: object;
     private readonly token: string;
+
     constructor(
         private httpClient: HttpClient,
     ) {
         this.token = localStorage.getItem('auth_token');
         this.httpOptions = {
-             headers: new HttpHeaders({
-                'Content-Type':  'application/json',
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                authorization: this.token
+            }),
+        };
+        this.httpOptionsFormData = {
+            headers: new HttpHeaders({
                 authorization: this.token
             }),
         };
@@ -24,7 +30,9 @@ export class ProfileEditResource {
     getCurrentProfile(): Observable<object> {
         return this.httpClient.get<object>(this.hostUrl, this.httpOptions);
     }
-    getAvatar(id: string): Observable<object> {
-        return this.httpClient.get<object>(`${this.hostUrl}/avatar/${id}`);
+
+    setAvatar(uploadData: FormData): Observable<object> {
+        console.log(`${this.hostUrl}/avatar`)
+        return this.httpClient.post<object>(`${this.hostUrl}/avatar`, uploadData, this.httpOptionsFormData);
     }
 }

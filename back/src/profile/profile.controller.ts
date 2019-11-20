@@ -8,7 +8,7 @@ import {
     UploadedFile,
     UseGuards,
     UseInterceptors,
-    Res,
+    Res, Logger,
 } from '@nestjs/common';
 import {
     ApiInternalServerErrorResponse,
@@ -43,23 +43,22 @@ export class ProfileController {
         return await this.profileService.getCurrentProfile(token);
     }
 
-    @Post()
+    @Post('/avatar')
     @UseGuards(AuthGuard('jwt'))
-    @UseInterceptors(FileInterceptor('file', avatarOptions))
+    @UseInterceptors(FileInterceptor('image', avatarOptions))
     @ApiBearerAuth()
     @ApiConsumes('multipart/form-data')
-    @ApiImplicitFile({ name: 'file', required: true, description: 'Profile avatar' })
+    @ApiImplicitFile({ name: 'image', required: true, description: 'Profile avatar' })
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
     @ApiOperation({title: 'Set profile avatar'})
     @ApiResponse({status: 200, description: 'Profile avatar set successfully'})
     @HttpCode(200)
-    async setAvatar(@Req() req, @UploadedFile() file): Promise<any> {
+    async setAvatar(@Req() req, @UploadedFile() image): Promise<any> {
         const token = req.header(`authorization`).split(' ')[1];
-        return await this.profileService.setAvatar(token, file.originalname );
+        return await this.profileService.setAvatar(token, image.originalname);
     }
 
     @Get('/avatar/:id')
-    // @UseGuards(AuthGuard('jwt'))
     @ApiBearerAuth()
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
     @ApiOperation({title: 'Get profile avatar'})

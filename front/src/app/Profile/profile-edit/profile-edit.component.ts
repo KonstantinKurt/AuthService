@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProfileEditService} from './profile-edit.service';
 import {Router} from '@angular/router';
 import {Profile} from './model/profile.model';
-import {Environment} from "@angular/compiler-cli/src/ngtsc/typecheck/src/environment";
-import {environment} from "../../../environments/environment";
+import {environment} from '../../../environments/environment';
 
 @Component({
     selector: 'app-profile-edit',
@@ -12,7 +11,8 @@ import {environment} from "../../../environments/environment";
 })
 export class ProfileEditComponent implements OnInit {
     private profile: Profile;
-    private avatar: any;
+    private avatar: string;
+    private selectedImage: File;
 
     constructor(
         private profileEditService: ProfileEditService,
@@ -28,17 +28,36 @@ export class ProfileEditComponent implements OnInit {
     getCurrentProfile() {
         this.profileEditService.getCurrentProfile()
             .subscribe(
-                (next: any) => {
-                    this.profile = next;
-                    this.avatar = `${environment.avatarServeUrl}${this.profile.avatar}`;
-                    console.log('Avatar', this.avatar);
-                    },
+                (response: any) => {
+                    this.profile = response;
+                    this.avatar = this.profile.avatar;
+                },
                 (err) => {
                     console.log(err);
                 });
     }
 
+    onImageChanged(event: Event) {
+        this.selectedImage = (event.target as HTMLInputElement).files[0];
+        console.log(this.selectedImage);
+    }
 
+    async onImageUpload() {
+        if (!this.selectedImage) {
+            return;
+        }
+        const uploadData: any = new FormData();
+        await uploadData.append('image', this.selectedImage);
+        console.log(uploadData);
+        this.profileEditService.setAvatar(uploadData)
+            .subscribe(
+                (response: any) => {
+                   this.avatar = `${environment.avatarServeUrl}${response.avatarId}`;
+                },
+                (err) => {
+                    console.log(err);
+                });
+    }
 
 
 }
