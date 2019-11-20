@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {Profile} from '../Profile/profile-edit/model/profile.model';
 
 @Component({
     selector: 'app-profile-navbar',
@@ -9,8 +10,9 @@ import {Router} from '@angular/router';
     ]
 })
 export class ProfileNavbarComponent implements OnInit {
-    private user = 'TEST';
-    private avatar = 'http://localhost:7000/profile/avatar/default_avatar.jpg';
+    @Input()
+    private profile: Profile;
+    // private avatar = 'http://localhost:7000/profile/avatar/default_avatar.jpg';
 
     constructor(
         private router: Router,

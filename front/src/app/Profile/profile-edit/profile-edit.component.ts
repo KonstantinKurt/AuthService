@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ProfileEditService} from './profile-edit.service';
 import {Router} from '@angular/router';
 import {Profile} from './model/profile.model';

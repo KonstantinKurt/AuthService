@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a0674987-418f-438c-892b-056a7b8c352f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/config/typeorm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/config/typeorm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/profile/profile.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/profile/profile.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/public/avatars/qwert.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.resource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.resource.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/profile-sidebar/profile-sidebar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/profile-sidebar/profile-sidebar.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,29 +24,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="30">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.scss">
+        <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="394">
+              <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts">
+        <entry file="file://$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+            <state relative-caret-position="390">
+              <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -111,8 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/front/src/app/Profile/unauthorized/unauthorized.component.html" />
-        <option value="$PROJECT_DIR$/front/src/app/Profile/unauthorized/unauthorized.component.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Auth/successful/successful.component.ts" />
         <option value="$PROJECT_DIR$/front/src/app/unauthorized/unauthorized.module.ts" />
         <option value="$PROJECT_DIR$/front/src/app/app.module.ts" />
@@ -148,7 +165,6 @@
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-sidebar/profile-sidebar.component.html" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-navbar/profile-navbar.component.scss" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-sidebar/profile-sidebar.component.scss" />
-        <option value="$PROJECT_DIR$/front/src/app/Profile/profile.module.ts" />
         <option value="$PROJECT_DIR$/front/src/styles.scss" />
         <option value="$PROJECT_DIR$/front/src/app/app.component.css" />
         <option value="$PROJECT_DIR$/front/src/app/app.component.ts" />
@@ -159,9 +175,12 @@
         <option value="$PROJECT_DIR$/back/src/config/typeorm.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.resource.ts" />
         <option value="$PROJECT_DIR$/back/src/profile/profile.controller.ts" />
-        <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html" />
-        <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.scss" />
+        <option value="$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.html" />
+        <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html" />
+        <option value="$PROJECT_DIR$/front/src/app/Profile/profile.module.ts" />
+        <option value="$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.ts" />
+        <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts" />
       </list>
     </option>
   </component>
@@ -290,12 +309,12 @@
       <workItem from="1573803669127" duration="22146000" />
       <workItem from="1574062014098" duration="4796000" />
       <workItem from="1574147719346" duration="15396000" />
-      <workItem from="1574235658072" duration="18145000" />
+      <workItem from="1574235658072" duration="20621000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181216000" />
+    <option name="totallyTimeSpent" value="183692000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="25" width="1853" height="1055" extended-state="6" />
@@ -315,7 +334,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29805616" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.29805616" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -572,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/app/_guards/auth.guard.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -605,32 +617,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-routing.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -676,27 +668,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html">
+    <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="364">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts">
+    <entry file="file://$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+        <state relative-caret-position="338">
+          <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.scss">
+    <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state relative-caret-position="394">
+          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
