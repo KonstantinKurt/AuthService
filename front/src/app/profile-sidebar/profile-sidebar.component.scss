@@ -1,16 +1,18 @@
 .sidebar-container {
   display: flex;
-  width: 220px;
+  width: 210px;
   border: solid 2px #52a8ff;
   background-color: #e1eff5;
   border-radius: 5px;
   height: 300px;
   box-shadow: 5px 5px 5px #3A3939;
   margin:0 20px 0 5px;
-  align-content: center;
+  align-content: start;
   ul {
     margin-top: 20px;
-    margin-left: 10px;
+    //margin-left: 10px;
+    list-style: none;
+
     li{
       color: #52a8ff;
       font-size: 25px;

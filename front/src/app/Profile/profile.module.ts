@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProfileNavbarComponent} from '../profile-navbar/profile-navbar.component';
 import {ProfileEditComponent} from './profile-edit/profile-edit.component';
 import {ProfileRoutingModule} from './profile-routing.module';
@@ -22,6 +22,8 @@ import { ProfileSidebarComponent } from '../profile-sidebar/profile-sidebar.comp
         HttpClientModule,
         FormsModule,
         ProfileRoutingModule,
+        ReactiveFormsModule,
+
     ],
     providers: [
       ProfileEditService,

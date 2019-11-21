@@ -1,26 +1,66 @@
 <div class="fullsize-container">
-    <app-profile-navbar [profile] = "profile">
-    </app-profile-navbar>
+    <app-profile-navbar [profile]="profile"></app-profile-navbar>
     <div class="profile-container">
         <app-profile-sidebar></app-profile-sidebar>
         <div class="data-container">
             <div class="changedata-container">
                 <div class="avatar">
-                    <img [src] = avatar>
+                    <img [src]=avatar>
                 </div>
                 <div class="input">
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputImage" (change)="onImageChanged($event)">
-                            <label class="custom-file-label" for="inputImage">{{selectedImage ? selectedImage.name : 'Choose File' }}</label>
+                            <input type="file" class="custom-file-input" id="inputImage"
+                                   (change)="onImageChanged($event)">
+                            <label class="custom-file-label"
+                                   for="inputImage">{{selectedImage ? selectedImage.name : 'Choose File' }}</label>
                         </div>
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" (click)="onImageUpload()">Upload</button>
+                            <button class="btn btn-outline-secondary" type="button" (click)="onImageUpload()">Upload
+                            </button>
                         </div>
                     </div>
+                </div>
+                <div class="userdata-container">
+                    <ul>
+                        <h4>Update profile data</h4>
+                        <li>
+                            <input type="text" placeholder="{{profile.name}}" [(ngModel)]="profile.name"
+                                   #name='ngModel' minlength="2">
+                            <button class="updatebtn" [disabled]="!name.valid">Change</button>
+                            <div [hidden]="name.valid" class="alert-danger">Too short name</div>
+                        </li>
+                        <li>
+                            <input type="email" placeholder="{{profile.email}}" [(ngModel)]="profile.email"
+                                   pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" #email="ngModel">
+                            <button class="updatebtn" [disabled]="!name.valid">Change</button>
+                            <div [hidden]="email.valid" class="alert-danger">Incorrect email!</div>
+                        </li>
+                        <hr>
+                        <li>
+                            <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
+                                <input type="password" placeholder="New password" formControlName='password'>
+                                <div class="alert-danger"
+                                     *ngIf="password.invalid && password.dirty">
+                                    <p *ngIf="password.errors.required">Required field</p>
+                                    <p *ngIf="password.errors.minlength">Password should contain at least 8
+                                        symbols</p>
+                                </div>
+                                <input type="password" placeholder="Confirm new password"
+                                       formControlName="confirmPassword">
+                                <div class="alert-danger"
+                                     *ngIf="confirmPassword.invalid && confirmPassword.dirty || validated === false">
+                                    <p *ngIf="confirmPassword.errors.notMatch">Password doesn't match</p>
+                                </div>
+                                <button type="submit" class="updatebtn">Submit</button>
+                            </form>
+                        </li>
+                        <hr>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 

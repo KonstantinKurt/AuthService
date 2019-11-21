@@ -12,7 +12,6 @@ import {Profile} from '../Profile/profile-edit/model/profile.model';
 export class ProfileNavbarComponent implements OnInit {
     @Input()
     private profile: Profile;
-    // private avatar = 'http://localhost:7000/profile/avatar/default_avatar.jpg';
 
     constructor(
         private router: Router,
