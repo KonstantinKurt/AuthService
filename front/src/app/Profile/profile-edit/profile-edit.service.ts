@@ -16,6 +16,10 @@ export class ProfileEditService {
         return this.profileEditResource.getCurrentProfile();
     }
 
+    updateCurrentProfile(updateData: object) {
+        return this.profileEditResource.updateCurrentProfile(updateData);
+    }
+
     setAvatar(uploadData: FormData): Observable<object> {
         return this.profileEditResource.setAvatar(uploadData);
     }

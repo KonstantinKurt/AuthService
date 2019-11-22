@@ -17,6 +17,7 @@ export class ProfileEntity extends BaseEntity {
     @PrimaryGeneratedColumn({
         type: 'uuid',
     })
+    @Exclude()
     id: string;
 
     @Column('text')
@@ -25,9 +26,11 @@ export class ProfileEntity extends BaseEntity {
     @Column('text')
     email: string;
 
-    @Column('text')
+    @Column({
+        type: 'text',
+        select: false,
+    })
     @IsDefined()
-    @Exclude()
     user: string;
 
     @Column({
@@ -37,6 +40,5 @@ export class ProfileEntity extends BaseEntity {
     avatar: string;
 
     @CreateDateColumn()
-    @Exclude()
     createdAt: string;
 }

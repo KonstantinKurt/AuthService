@@ -6,6 +6,7 @@ import {environment} from '../../../environments/environment';
 import {User} from '../../Auth/register/model/user.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {confirmPasswordValidator} from '../../_helpers/confirm-password-validator';
+import {UpdateProfileDto} from '../../../../../back/src/profile/dto/update-profile.dto';
 
 @Component({
     selector: 'app-profile-edit',
@@ -14,8 +15,6 @@ import {confirmPasswordValidator} from '../../_helpers/confirm-password-validato
 })
 export class ProfileEditComponent implements OnInit {
     private profile: Profile;
-    private user: User;
-    private avatar: string;
     private selectedImage: File;
     private changePasswordForm: FormGroup;
     private password: FormControl;
@@ -55,7 +54,7 @@ export class ProfileEditComponent implements OnInit {
         });
     }
 
-    onSubmit() {
+    async onSubmit() {
         if (this.changePasswordForm.invalid) {
             this.validated = false;
             return;
@@ -65,24 +64,23 @@ export class ProfileEditComponent implements OnInit {
         }
     }
 
-    getCurrentProfile() {
+    async getCurrentProfile() {
         this.profileEditService.getCurrentProfile()
             .subscribe(
                 (response: any) => {
-                    this.profile = response;
-                    this.avatar = this.profile.avatar;
+                    this.profile = response.result;
                 },
                 (err) => {
                     console.log(err);
                 });
     }
 
-    onImageChanged(event: Event) {
+    async onImageChanged(event: Event) {
         this.selectedImage = (event.target as HTMLInputElement).files[0];
         console.log(this.selectedImage);
     }
 
-    onImageUpload() {
+    async onImageUpload() {
         if (!this.selectedImage) {
             return;
         }
@@ -92,12 +90,30 @@ export class ProfileEditComponent implements OnInit {
         this.profileEditService.setAvatar(uploadData)
             .subscribe(
                 (response: any) => {
-                    this.avatar = `${environment.avatarServeUrl}${response.avatarId}`;
+                    this.profile.avatar = `${environment.avatarServeUrl}${response.avatarId}`;
                 },
                 (err) => {
                     console.log(err);
                 });
     }
+
+    async updateProfileData(param: string, mock: string) {
+        const updateData = await {
+            [param]: this.profile[param],
+            [mock]: ''
+        };
+        this.profileEditService.updateCurrentProfile(updateData)
+            .subscribe(
+                (response: any) => {
+                    this.profile = response.result;
+                    console.log(this.profile);
+                },
+                (err) => {
+                    console.log(err);
+                });
+    }
+
+
 
 
 }

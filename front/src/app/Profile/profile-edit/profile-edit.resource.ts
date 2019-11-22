@@ -31,8 +31,11 @@ export class ProfileEditResource {
         return this.httpClient.get<object>(this.hostUrl, this.httpOptions);
     }
 
+    updateCurrentProfile(updateData: object): Observable<object> {
+        return this.httpClient.patch<object>(this.hostUrl, updateData, this.httpOptions);
+    }
+
     setAvatar(uploadData: FormData): Observable<object> {
-        console.log(`${this.hostUrl}/avatar`)
         return this.httpClient.post<object>(`${this.hostUrl}/avatar`, uploadData, this.httpOptionsFormData);
     }
 }

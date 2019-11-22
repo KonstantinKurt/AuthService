@@ -8,6 +8,7 @@ import {ProfileRoutingModule} from './profile-routing.module';
 import {ProfileEditService} from './profile-edit/profile-edit.service';
 import {ProfileEditResource} from './profile-edit/profile-edit.resource';
 import { ProfileSidebarComponent } from '../profile-sidebar/profile-sidebar.component';
+import { AvatarChangeSizeDirective } from './profile-edit/directives/avatar-change-size.directive';
 
 
 
@@ -16,6 +17,7 @@ import { ProfileSidebarComponent } from '../profile-sidebar/profile-sidebar.comp
         ProfileNavbarComponent,
         ProfileEditComponent,
         ProfileSidebarComponent,
+        AvatarChangeSizeDirective,
     ],
     imports: [
         CommonModule,

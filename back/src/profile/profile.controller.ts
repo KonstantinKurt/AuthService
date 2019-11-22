@@ -8,7 +8,10 @@ import {
     UploadedFile,
     UseGuards,
     UseInterceptors,
-    Res, Logger,
+    Res,
+    Logger,
+    Put,
+    Body, Patch,
 } from '@nestjs/common';
 import {
     ApiInternalServerErrorResponse,
@@ -23,13 +26,15 @@ import {ProfileService} from './profile.service';
 import {AuthGuard} from '@nestjs/passport';
 import {FileInterceptor} from '@nestjs/platform-express';
 import {avatarOptions} from '../config/multer';
+import {UpdateProfileDto} from "./dto/update-profile.dto";
 
 @ApiUseTags('Profile controller')
 @Controller('profile')
 export class ProfileController {
     constructor(
         private profileService: ProfileService,
-    ) {}
+    ) {
+    }
 
     @Get()
     @UseGuards(AuthGuard('jwt'))
@@ -48,7 +53,7 @@ export class ProfileController {
     @UseInterceptors(FileInterceptor('image', avatarOptions))
     @ApiBearerAuth()
     @ApiConsumes('multipart/form-data')
-    @ApiImplicitFile({ name: 'image', required: true, description: 'Profile avatar' })
+    @ApiImplicitFile({name: 'image', required: true, description: 'Profile avatar'})
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
     @ApiOperation({title: 'Set profile avatar'})
     @ApiResponse({status: 200, description: 'Profile avatar set successfully'})
@@ -64,7 +69,20 @@ export class ProfileController {
     @ApiOperation({title: 'Get profile avatar'})
     @ApiResponse({status: 200, description: 'Profile avatar get successfully'})
     async serveAvatar(@Param('id') id: string, @Res() res): Promise<any> {
-        res.sendFile(id, { root: 'src/public/avatars'});
+        res.sendFile(id, {root: 'src/public/avatars'});
     }
+
+    @Patch()
+    @UseGuards(AuthGuard('jwt'))
+    @ApiBearerAuth()
+    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
+    @ApiOperation({title: 'Profile data update'})
+    @ApiResponse({status: 200, description: 'Profile data updated successfully!'})
+    @HttpCode(200)
+    async updateProfile(@Req() req, @Body() updateData: UpdateProfileDto): Promise<any> {
+        const token = req.header(`authorization`).split(' ')[1];
+        return await this.profileService.updateProfile(token, updateData);
+    }
+
 
 }

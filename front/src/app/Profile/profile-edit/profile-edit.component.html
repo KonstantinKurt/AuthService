@@ -5,20 +5,18 @@
         <div class="data-container">
             <div class="changedata-container">
                 <div class="avatar">
-                    <img [src]=avatar>
+                    <img appAvatar [src]=profile.avatar>
                 </div>
-                <div class="input">
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputImage"
-                                   (change)="onImageChanged($event)">
-                            <label class="custom-file-label"
-                                   for="inputImage">{{selectedImage ? selectedImage.name : 'Choose File' }}</label>
-                        </div>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" (click)="onImageUpload()">Upload
-                            </button>
-                        </div>
+                <div class="input-group input">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputImage"
+                               (change)="onImageChanged($event)">
+                        <label class="custom-file-label"
+                               for="inputImage">{{selectedImage ? selectedImage.name : 'Choose File' }}</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" (click)="onImageUpload()" [disabled] = "!selectedImage">Upload
+                        </button>
                     </div>
                 </div>
                 <div class="userdata-container">
@@ -27,13 +25,13 @@
                         <li>
                             <input type="text" placeholder="{{profile.name}}" [(ngModel)]="profile.name"
                                    #name='ngModel' minlength="2">
-                            <button class="updatebtn" [disabled]="!name.valid">Change</button>
+                            <button class="updatebtn" [disabled]="!name.valid" (click)="updateProfileData('name', 'email')">Change</button>
                             <div [hidden]="name.valid" class="alert-danger">Too short name</div>
                         </li>
                         <li>
                             <input type="email" placeholder="{{profile.email}}" [(ngModel)]="profile.email"
                                    pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" #email="ngModel">
-                            <button class="updatebtn" [disabled]="!name.valid">Change</button>
+                            <button class="updatebtn" [disabled]="!name.valid" (click)="updateProfileData('email', 'name')">Change</button>
                             <div [hidden]="email.valid" class="alert-danger">Incorrect email!</div>
                         </li>
                         <hr>

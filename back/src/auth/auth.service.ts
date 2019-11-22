@@ -101,7 +101,7 @@ export class AuthService {
             };
         } catch (error) {
             throw new HttpException({
-                error,
+                error: error.message,
             }, 500);
         }
     }
@@ -121,7 +121,7 @@ export class AuthService {
             }
         } catch (error) {
             throw new HttpException({
-                error,
+                error: error.message,
             }, 500);
         }
     }
