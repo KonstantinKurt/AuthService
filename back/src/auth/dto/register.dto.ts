@@ -8,21 +8,12 @@ import {
 
 export class RegisterDto {
     @ApiModelProperty({
-            minLength: 2,
-            type: String,
-        },
-    )
-    @IsString()
-    @IsNotEmpty()
-    @Length(4, 20)
-    readonly name: string;
-
-    @ApiModelProperty({
             minLength: 8,
             type: String,
         },
     )
     @IsNotEmpty()
+    @IsString()
     @Length(8, 20)
     readonly password: string;
 
@@ -30,4 +21,9 @@ export class RegisterDto {
     @IsNotEmpty()
     @IsEmail()
     readonly email: string;
+
+    @ApiModelProperty()
+    @IsNotEmpty()
+    @IsString()
+    readonly name: string;
 }

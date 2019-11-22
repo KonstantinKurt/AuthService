@@ -25,18 +25,30 @@
                         <li>
                             <input type="text" placeholder="{{profile.name}}" [(ngModel)]="profile.name"
                                    #name='ngModel' minlength="2">
-                            <button class="updatebtn" [disabled]="!name.valid" (click)="updateProfileData('name', 'email')">Change</button>
+                            <button class="updatebtn" [disabled]="!name.valid" (click)="updateProfileData('name', ['email'])">Change</button>
                             <div [hidden]="name.valid" class="alert-danger">Too short name</div>
                         </li>
                         <li>
                             <input type="email" placeholder="{{profile.email}}" [(ngModel)]="profile.email"
                                    pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" #email="ngModel">
-                            <button class="updatebtn" [disabled]="!name.valid" (click)="updateProfileData('email', 'name')">Change</button>
+                            <button class="updatebtn" [disabled]="!name.valid" (click)="updateProfileData('email', ['name'])">Change</button>
                             <div [hidden]="email.valid" class="alert-danger">Incorrect email!</div>
+                        </li>
+                        <li>
+                            <input type="text" placeholder="Phone Number">
+                            <button type="button" class="updatebtn" disabled >Change</button>
                         </li>
                         <hr>
                         <li>
+                            <h4>Change password</h4>
                             <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
+                                <input type="password" placeholder="Old password" formControlName='oldPassword'>
+                                <div class="alert-danger"
+                                     *ngIf="password.invalid && password.dirty">
+                                    <p *ngIf="password.errors.required">Required field</p>
+                                    <p *ngIf="password.errors.minlength">Password should contain at least 8
+                                        symbols</p>
+                                </div>
                                 <input type="password" placeholder="New password" formControlName='password'>
                                 <div class="alert-danger"
                                      *ngIf="password.invalid && password.dirty">
@@ -51,6 +63,7 @@
                                     <p *ngIf="confirmPassword.errors.notMatch">Password doesn't match</p>
                                 </div>
                                 <button type="submit" class="updatebtn">Submit</button>
+                                <h5 style="color: green;" *appChangePassword= "isVisible">Password changed successfully!</h5>
                             </form>
                         </li>
                         <hr>

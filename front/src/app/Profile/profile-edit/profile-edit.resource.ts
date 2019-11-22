@@ -17,8 +17,9 @@ export class ProfileEditResource {
         this.httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
-                authorization: this.token
+                authorization: this.token,
             }),
+            observe: 'response',
         };
         this.httpOptionsFormData = {
             headers: new HttpHeaders({
@@ -37,5 +38,9 @@ export class ProfileEditResource {
 
     setAvatar(uploadData: FormData): Observable<object> {
         return this.httpClient.post<object>(`${this.hostUrl}/avatar`, uploadData, this.httpOptionsFormData);
+    }
+
+    updatePassword(updatePasswordData: object): Observable<object> {
+        return this.httpClient.patch(`${process.env.hostUrl}/auth`, updatePasswordData, this.httpOptions);
     }
 }

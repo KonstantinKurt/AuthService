@@ -24,4 +24,8 @@ export class ProfileEditService {
         return this.profileEditResource.setAvatar(uploadData);
     }
 
+    updatePassword(updatePasswordData: object): Observable<object> {
+        return this.profileEditResource.updatePassword(updatePasswordData);
+    }
+
 }

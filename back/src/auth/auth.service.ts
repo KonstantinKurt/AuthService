@@ -15,6 +15,7 @@ import {MailerService} from '@nest-modules/mailer';
 import {getNewIpLetter} from '../helpers/newip-letter.helper';
 import {IpUrl} from './interfaces/ip-url.interface';
 import {getHash} from '../helpers/hash-gen.helper';
+import {UpdatePasswordDto} from './dto/update-password.dto';
 
 // import {UpdateEmployeeDto} from '../employee/dto/update-employee.dto';
 // import {UpdateUserDTO} from './dto/update-user.dto';
@@ -126,22 +127,21 @@ export class AuthService {
         }
     }
 
-    // async updateUserByToken(userData: UpdateUserDTO, token: string) {
-    //     try {
-    //         const tokenData: any = await this.jwtService.decode(token);
-    //         const oldPassword = await this.userModel.findOne({_id: tokenData.id}, '-_id').select('password');
-    //         if (userData.password === '') {
-    //             userData.password = oldPassword.password;
-    //         } else {
-    //             userData.password = await bcrypt.hashSync(userData.password, +process.env.USER_PASSWORD_SALT);
-    //         }
-    //         await this.userModel.updateOne({_id: tokenData.id}, userData, {new: true}).exec();
-    //         return this.userModel.findOne({_id: tokenData.id}).exec();
-    //     } catch (error) {
-    //         throw new HttpException({
-    //             error,
-    //         }, 500);
-    //     }
-    // }
+    async updatePassword(token: string, updatePasswordDto: UpdatePasswordDto) {
+        try {
+            const userData: any = await this.jwtService.decode(token);
+
+            Logger.log(`Service`);
+            Logger.log(userData);
+            return {
+                data: userData,
+            };
+        } catch (error) {
+            Logger.log(error.message);
+            throw new HttpException({
+                error: error.message,
+            }, 500);
+        }
+    }
 
 }

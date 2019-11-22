@@ -3,11 +3,12 @@ import {
     Controller,
     HttpCode,
     Post,
-    Put,
+    Patch,
     Req,
     Logger,
     Get,
     Param,
+    UseGuards,
 } from '@nestjs/common';
 import {
     ApiCreatedResponse,
@@ -15,12 +16,14 @@ import {
     ApiUseTags,
     ApiOperation,
     ApiResponse,
-    ApiNotFoundResponse,
+    ApiNotFoundResponse, ApiBearerAuth,
 } from '@nestjs/swagger';
 import {AuthService} from './auth.service';
 import {LoginDto} from './dto/login.dto';
 import {RegisterDto} from './dto/register.dto';
 import {IpAddressCheck} from '../decorators/check-ip-adress.decorator';
+import {AuthGuard} from '@nestjs/passport';
+import {UpdatePasswordDto} from './dto/update-password.dto';
 // import {UpdateEmployeeDto} from '../employee/dto/update-employee.dto';
 // import {UpdateUserDTO} from './dto/update-user.dto';
 
@@ -59,29 +62,16 @@ export class AuthController {
         return await this.authService.newIpUpdate(hash);
     }
 
-    // @Post('/user')
-    // @UseGuards(AuthGuard('jwt'))
-    // @ApiBearerAuth()
-    // @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
-    // @ApiResponse({status: 200, description: 'User found successfully!'})
-    // @ApiNotFoundResponse({description: 'User not found!'})
-    // @ApiOperation({title: 'Get user by token decoded data'})
-    // @HttpCode(200)
-    // async getProfileByToken(@Req() req): Promise<object> {
-    //     const token = req.header(`authorization`).split(' ')[1];
-    //     return this.authService.getUserByToken(token);
-    // }
-
-    // @Put('/user')
-    // @UseGuards(AuthGuard('jwt'))
-    // @ApiBearerAuth()
-    // @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
-    // @ApiOperation({title: 'Update user by token decoded data'})
-    // @ApiResponse({status: 204, description: 'User updated successfully!'})
-    // @ApiNotFoundResponse({description: 'User not found!'})
-    // @HttpCode(204)
-    // async updateProfileByToken(@Body() userData: UpdateUserDTO, @Req() req): Promise<object> {
-    //     const token = req.header(`authorization`).split(' ')[1];
-    //     return this.authService.updateUserByToken(userData, token);
-    // }
+    @Patch()
+    @UseGuards(AuthGuard('jwt'))
+    @ApiBearerAuth()
+    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
+    @ApiOperation({title: 'Update user by token decoded data'})
+    @ApiResponse({status: 204, description: 'User password updated successfully!'})
+    @ApiNotFoundResponse({description: 'User not found!'})
+    @HttpCode(200)
+    async updateProfileByToken(@Body() userPasswordData: UpdatePasswordDto, @Req() req): Promise<object> {
+        const token = req.header(`authorization`).split(' ')[1];
+        return await this.authService.updatePassword(token, userPasswordData);
+    }
 }

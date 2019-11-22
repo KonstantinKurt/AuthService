@@ -9,6 +9,7 @@ import {ProfileEditService} from './profile-edit/profile-edit.service';
 import {ProfileEditResource} from './profile-edit/profile-edit.resource';
 import { ProfileSidebarComponent } from '../profile-sidebar/profile-sidebar.component';
 import { AvatarChangeSizeDirective } from './profile-edit/directives/avatar-change-size.directive';
+import { ChangePasswordDirective } from './profile-edit/directives/change-password.directive';
 
 
 
@@ -18,6 +19,7 @@ import { AvatarChangeSizeDirective } from './profile-edit/directives/avatar-chan
         ProfileEditComponent,
         ProfileSidebarComponent,
         AvatarChangeSizeDirective,
+        ChangePasswordDirective,
     ],
     imports: [
         CommonModule,

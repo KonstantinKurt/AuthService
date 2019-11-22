@@ -17,9 +17,11 @@ export class ProfileEditComponent implements OnInit {
     private profile: Profile;
     private selectedImage: File;
     private changePasswordForm: FormGroup;
+    private oldPassword: FormControl;
     private password: FormControl;
     private confirmPassword: FormControl;
     private validated: boolean;
+    private isVisible = false;
 
     constructor(
         private profileEditService: ProfileEditService,
@@ -36,6 +38,10 @@ export class ProfileEditComponent implements OnInit {
     }
 
     createFormControls() {
+        this.oldPassword = new FormControl('', [
+            Validators.required,
+            Validators.minLength(8),
+        ]);
         this.password = new FormControl('', [
             Validators.required,
             Validators.minLength(8),
@@ -49,6 +55,7 @@ export class ProfileEditComponent implements OnInit {
 
     createChangePassswordForm() {
         this.changePasswordForm = new FormGroup({
+            oldPassword: this.oldPassword,
             password: this.password,
             confirmPassword: this.confirmPassword,
         });
@@ -61,6 +68,23 @@ export class ProfileEditComponent implements OnInit {
         } else {
             this.validated = true;
             console.log(this.password.value);
+            const updatePasswordData = await {
+                oldPassword: this.oldPassword.value,
+                newPassword: this.password.value,
+            };
+            this.profileEditService.updatePassword(updatePasswordData)
+                .subscribe(
+                    (response: any) => {
+                        if (response.status === 200) {
+                            this.isVisible = true;
+                            setTimeout(() => {
+                                this.isVisible = false;
+                            }, 5000);
+                        }
+                    },
+                    (err) => {
+                        console.log(err);
+                    });
         }
     }
 
@@ -68,7 +92,8 @@ export class ProfileEditComponent implements OnInit {
         this.profileEditService.getCurrentProfile()
             .subscribe(
                 (response: any) => {
-                    this.profile = response.result;
+                    console.log(response);
+                    this.profile = response.body.result;
                 },
                 (err) => {
                     console.log(err);
@@ -97,23 +122,21 @@ export class ProfileEditComponent implements OnInit {
                 });
     }
 
-    async updateProfileData(param: string, mock: string) {
+    async updateProfileData(param: string, mock: string[]) {
         const updateData = await {
             [param]: this.profile[param],
-            [mock]: ''
+            [mock[0]]: ''
         };
         this.profileEditService.updateCurrentProfile(updateData)
             .subscribe(
                 (response: any) => {
-                    this.profile = response.result;
+                    this.profile = response.body.result;
                     console.log(this.profile);
                 },
                 (err) => {
                     console.log(err);
                 });
     }
-
-
 
 
 }

@@ -65,13 +65,16 @@
       margin-top: 5%;
       width: 90%;
     }
+
     li {
       margin: 5% 0 0 1%;
-      input{
+
+      input {
         width: 70%;
         margin: 3px 3px 0 0;
       }
-      button{
+
+      button {
         width: 28%;
       }
     }
@@ -105,6 +108,7 @@
   text-align: center;
   color: #52a8ff;
   background-color: #e1eff5;
+
 }
 
 .updatebtn:hover {
@@ -117,4 +121,11 @@
 .updatebtn:active {
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
   border: inset;
+}
+
+.updatebtn:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  box-shadow: none ;
 }
