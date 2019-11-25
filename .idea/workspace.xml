@@ -2,16 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0674987-418f-438c-892b-056a7b8c352f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/back/src/article/dto/article.dto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/article/article.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/article/article.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/article/article.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/article/article.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/article/article.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/article/dto/article.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/entity/user.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/article/entity/article.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/middleware/check-email.middleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/auth.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/auth/dto/update-password.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/dto/update-password.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.resource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.resource.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/auth/interfaces/jwt-payload.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/interfaces/jwt-payload.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/auth/schemas/ip-url.schema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/auth/schemas/user.schema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/auth/strategy/jwt.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/strategy/jwt.strategy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/profile/entity/profile.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/profile/entity/profile.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/profile/profile.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/profile/profile.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/profile/profile.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/profile/profile.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,13 +36,99 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/back/src/article/dto/article.dto.ts">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/back/src/profile/entity/profile.entity.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#128#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/back/src/auth/entity/user.entity.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#138#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/back/src/article/article.entity.ts">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/back/src/auth/auth.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="88" selection-start-line="88" selection-end-line="88" />
+              <folding>
+                <element signature="e#0#107#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/back/src/auth/auth.controller.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#150#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/back/src/auth/middleware/check-email.middleware.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="96" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="96" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/back/src/auth/dto/register.dto.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/back/src/auth/auth.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="498">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+              <folding>
+                <element signature="e#0#88#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/back/src/profile/profile.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-750">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#0#103#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -62,12 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/back/src/auth/interfaces/jwt-payload.interface.ts" />
-        <option value="$PROJECT_DIR$/front/src/app/Auth/register/register.component.ts" />
-        <option value="$PROJECT_DIR$/front/src/app/Auth/login/login.component.ts" />
-        <option value="$PROJECT_DIR$/front/src/app/_guards/auth.guard.ts" />
-        <option value="$PROJECT_DIR$/back/.env" />
-        <option value="$PROJECT_DIR$/back/src/config/multer.ts" />
         <option value="$PROJECT_DIR$/front/src/environments/environment.prod.ts" />
         <option value="$PROJECT_DIR$/front/src/environments/environment.ts" />
         <option value="$PROJECT_DIR$/markUpTest/test.html" />
@@ -86,33 +175,39 @@
         <option value="$PROJECT_DIR$/front/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.scss" />
         <option value="$PROJECT_DIR$/front/src/app/profile-sidebar/profile-sidebar.component.html" />
-        <option value="$PROJECT_DIR$/back/src/config/typeorm.ts" />
         <option value="$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.ts" />
         <option value="$PROJECT_DIR$/front/src/app/profile-navbar/profile-navbar.component.html" />
         <option value="$PROJECT_DIR$/front/src/app/profile-sidebar/profile-sidebar.component.scss" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile.module.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/directives/avatar.directive.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/directives/avatar-change-size.directive.ts" />
-        <option value="$PROJECT_DIR$/back/src/app.module.ts" />
         <option value="$PROJECT_DIR$/back/src/profile/dto/update-profile.dto.ts" />
-        <option value="$PROJECT_DIR$/back/src/profile/entity/profile.entity.ts" />
         <option value="$PROJECT_DIR$/back/src/profile/profile.controller.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/dto/update-profile.dto.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/model/profile.model.ts" />
-        <option value="$PROJECT_DIR$/back/src/profile/profile.service.ts" />
         <option value="$PROJECT_DIR$/front/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/directives/change-password.directive.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.service.ts" />
         <option value="$PROJECT_DIR$/back/src/auth/dto/register.dto.ts" />
-        <option value="$PROJECT_DIR$/back/src/auth/auth.controller.ts" />
         <option value="$PROJECT_DIR$/back/src/auth/dto/update-password.dto.ts" />
-        <option value="$PROJECT_DIR$/back/src/auth/auth.service.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.resource.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.ts" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.html" />
         <option value="$PROJECT_DIR$/front/src/app/Profile/profile-edit/profile-edit.component.scss" />
         <option value="$PROJECT_DIR$/back/src/article/dto/article.dto.ts" />
         <option value="$PROJECT_DIR$/back/src/article/article.entity.ts" />
+        <option value="$PROJECT_DIR$/back/src/config/typeorm.ts" />
+        <option value="$PROJECT_DIR$/back/src/app.module.ts" />
+        <option value="$PROJECT_DIR$/back/src/profile/profile.module.ts" />
+        <option value="$PROJECT_DIR$/back/src/profile/profile.service.ts" />
+        <option value="$PROJECT_DIR$/back/src/auth/strategy/jwt.strategy.ts" />
+        <option value="$PROJECT_DIR$/back/src/auth/interfaces/jwt-payload.interface.ts" />
+        <option value="$PROJECT_DIR$/back/src/auth/auth.controller.ts" />
+        <option value="$PROJECT_DIR$/back/src/auth/entity/user.entity.ts" />
+        <option value="$PROJECT_DIR$/back/src/profile/entity/profile.entity.ts" />
+        <option value="$PROJECT_DIR$/back/src/auth/auth.module.ts" />
+        <option value="$PROJECT_DIR$/back/src/auth/middleware/check-email.middleware.ts" />
+        <option value="$PROJECT_DIR$/back/src/auth/auth.service.ts" />
       </list>
     </option>
   </component>
@@ -150,7 +245,38 @@
               <item name="Sn_Ng_Nest" type="462c0819:PsiDirectoryNode" />
               <item name="back" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sn_Ng_Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sn_Ng_Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sn_Ng_Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sn_Ng_Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+              <item name="middleware" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sn_Ng_Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sn_Ng_Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+              <item name="strategy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sn_Ng_Nest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sn_Ng_Nest" type="462c0819:PsiDirectoryNode" />
+              <item name="back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sn_Ng_Nest" type="b2602c69:ProjectViewProjectNode" />
@@ -176,8 +302,9 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/back/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -229,17 +356,18 @@
       <workItem from="1574409026087" duration="1570000" />
       <workItem from="1574414872274" duration="18130000" />
       <workItem from="1574677020499" duration="6707000" />
+      <workItem from="1574690680388" duration="7026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226441000" />
+    <option name="totallyTimeSpent" value="233467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29773104" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30105147" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -253,7 +381,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3088553" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3088553" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -265,56 +393,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front/src/app/Auth/login/login.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-495">
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/app/Profile/profile-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/config/typeorm.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/environments/environment.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/app/Auth/login/login.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="34" selection-start-line="2" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/app/Auth/auth.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/app/Auth/register/register.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1005">
@@ -353,16 +431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back/src/profile/dto/update-profile.dto.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -379,16 +447,6 @@
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/profile/entity/profile.entity.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="31" column="6" lean-forward="true" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#128#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -528,19 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/auth/interfaces/jwt-payload.interface.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/profile/profile.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back/node_modules/@types/request-ip/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
@@ -558,17 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/auth/auth.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
-          <folding>
-            <element signature="e#0#107#0" expanded="true" />
-            <marker date="1574680498261" expanded="true" signature="5319:6070" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back/src/auth/dto/update-password.dto.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -579,40 +613,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/auth/dto/register.dto.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/auth/auth.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="65" column="78" lean-forward="true" selection-start-line="65" selection-start-column="78" selection-end-line="65" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#150#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back/src/profile/profile.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="69" column="79" lean-forward="true" selection-start-line="69" selection-start-column="79" selection-end-line="69" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/auth/schemas/user.schema.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="36" column="84" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -663,11 +667,143 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/article/article.entity.ts" />
     <entry file="file://$PROJECT_DIR$/back/src/article/dto/article.dto.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/article/article.entity.ts">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/back/src/auth/schemas/user.schema.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="84" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/config/typeorm.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/profile/profile.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/profile/profile.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-750">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/auth/interfaces/jwt-payload.interface.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/auth/strategy/jwt.strategy.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/auth/auth.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/auth/dto/register.dto.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/auth/auth.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/auth/entity/user.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#138#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/profile/entity/profile.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/auth/middleware/check-email.middleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="96" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="96" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/src/auth/auth.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="e#0#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

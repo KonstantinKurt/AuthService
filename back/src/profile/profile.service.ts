@@ -8,7 +8,6 @@ import {InjectRepository} from '@nestjs/typeorm';
 import {ProfileEntity} from './entity/profile.entity';
 import {Repository} from 'typeorm';
 import {JwtService} from '@nestjs/jwt';
-import {UpdateProfileDto} from './dto/update-profile.dto';
 
 @Injectable()
 export class ProfileService {

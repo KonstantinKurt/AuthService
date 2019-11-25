@@ -46,7 +46,7 @@ export class AuthController {
     @ApiCreatedResponse({description: 'User created successfully!'})
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
     @HttpCode(201)
-    async create(@Body() userData: RegisterDto,  @IpAddressCheck() ip: number): Promise<object> {
+    async create(@Body() userData: RegisterDto,  @IpAddressCheck() ip: string): Promise<object> {
         return await this.authService.register(userData, ip);
 
     }

@@ -6,18 +6,11 @@ import {
     Unique,
     CreateDateColumn,
 } from 'typeorm';
-import {
-    IsDefined,
-} from 'class-validator';
-import {Exclude} from 'class-transformer';
 
 @Entity('Profile')
-@Unique(['email'])
+// @Unique(['email'])  // doesnt work, test if fixed
 export class ProfileEntity extends BaseEntity {
-    @PrimaryGeneratedColumn({
-        type: 'uuid',
-    })
-    @Exclude()
+    @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column('text')
@@ -25,13 +18,6 @@ export class ProfileEntity extends BaseEntity {
 
     @Column('text')
     email: string;
-
-    @Column({
-        type: 'text',
-        select: false,
-    })
-    @IsDefined()
-    user: string;
 
     @Column({
         type: 'text',

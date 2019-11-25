@@ -5,30 +5,20 @@ import {
 } from '@nestjs/common';
 import {AuthController} from './auth.controller';
 import {AuthService} from './auth.service';
-import {MongooseModule} from '@nestjs/mongoose';
-import {UserSchema} from './schemas/user.schema';
-import {JwtModule, JwtService} from '@nestjs/jwt';
+import {JwtModule} from '@nestjs/jwt';
 import {PassportModule} from '@nestjs/passport';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {ProfileEntity} from '../profile/entity/profile.entity';
-import {IpUrlSchema} from './schemas/ip-url.schema';
 import {LoggerMiddleware} from '../middlewares/logger.middleware';
 import {JwtStrategy} from './strategy/jwt.strategy';
+import {UserEntity} from './entity/user.entity';
+import apply = Reflect.apply;
+import {CheckEmailMiddleware} from './middleware/check-email.middleware';
 
 @Module({
     imports: [
-        MongooseModule.forFeature([
-                {
-                    name: 'User',
-                    schema: UserSchema,
-                },
-                {
-                    name: 'IpUrl',
-                    schema: IpUrlSchema,
-                },
-            ],
-        ),
         TypeOrmModule.forFeature([
+            UserEntity,
             ProfileEntity,
         ]),
         JwtModule.register({
@@ -57,5 +47,8 @@ export class AuthModule {
         consumer
             .apply(LoggerMiddleware)
             .forRoutes({path: 'auth', method: RequestMethod.ALL});
+        consumer
+            .apply(CheckEmailMiddleware)
+            .forRoutes({path: 'auth/register', method: RequestMethod.ALL});
     }
 }
