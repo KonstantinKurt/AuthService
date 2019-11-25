@@ -115,7 +115,7 @@ export class AuthService {
             if (ipUrl) {
                 await this.userModel.updateOne({_id: ipUrl.user}, {$push: {ip_address: ipUrl.ip}}).exec();
                 await this.ipUrlModel.deleteOne({_id: ipUrl._id}).exec();
-                return `Ip pushed to user's ip`;
+                return `Ip pushed to user's ip array`;
             } else {
                 await this.ipUrlModel.deleteOne({hash}).exec();
                 return `Link is expired`;
@@ -127,17 +127,23 @@ export class AuthService {
         }
     }
 
-    async updatePassword(token: string, updatePasswordDto: UpdatePasswordDto) {
+    async updatePassword(token: string, updatePassword: UpdatePasswordDto) {
         try {
             const userData: any = await this.jwtService.decode(token);
-
-            Logger.log(`Service`);
-            Logger.log(userData);
-            return {
-                data: userData,
-            };
+            const userToUpdate = await this.userModel.findOne({_id: userData.id});
+            const comparePassword = await bcrypt.compareSync( updatePassword.oldPassword, userToUpdate.password);
+            if (comparePassword) {
+                const newPasswordCrypt = await bcrypt.hashSync(updatePassword.newPassword, +process.env.USER_PASSWORD_SALT);
+                await this.userModel.updateOne({_id: userData.id}, {password: newPasswordCrypt});
+                return {
+                    message: `password updated successfully!`,
+                };
+            } else {
+                return {
+                    message: `wrong old password`,
+                };
+            }
         } catch (error) {
-            Logger.log(error.message);
             throw new HttpException({
                 error: error.message,
             }, 500);

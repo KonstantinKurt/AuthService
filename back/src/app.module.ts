@@ -4,11 +4,12 @@ import {ConfigModule} from 'nestjs-config';
 import {AuthModule} from './auth/auth.module';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {MailerModule} from '@nest-modules/mailer';
-import * as path from 'path';
 import {typeOrm} from './config/typeorm';
+import {ProfileModule} from './profile/profile.module';
+import { ArticleModule } from './article/article.module';
+import * as path from 'path';
 import transport from './config/transport';
 import mongo from './config/mongo';
-import {ProfileModule} from './profile/profile.module';
 
 @Module({
     imports: [
@@ -21,6 +22,7 @@ import {ProfileModule} from './profile/profile.module';
         }),
         AuthModule,
         ProfileModule,
+        ArticleModule,
     ],
     controllers: [],
     providers: [],

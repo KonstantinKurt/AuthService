@@ -24,8 +24,6 @@ import {RegisterDto} from './dto/register.dto';
 import {IpAddressCheck} from '../decorators/check-ip-adress.decorator';
 import {AuthGuard} from '@nestjs/passport';
 import {UpdatePasswordDto} from './dto/update-password.dto';
-// import {UpdateEmployeeDto} from '../employee/dto/update-employee.dto';
-// import {UpdateUserDTO} from './dto/update-user.dto';
 
 @ApiUseTags('Auth controller')
 @Controller('/auth')
@@ -66,7 +64,7 @@ export class AuthController {
     @UseGuards(AuthGuard('jwt'))
     @ApiBearerAuth()
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
-    @ApiOperation({title: 'Update user by token decoded data'})
+    @ApiOperation({title: 'Update user password'})
     @ApiResponse({status: 204, description: 'User password updated successfully!'})
     @ApiNotFoundResponse({description: 'User not found!'})
     @HttpCode(200)

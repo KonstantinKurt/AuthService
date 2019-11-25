@@ -15,7 +15,8 @@
                                for="inputImage">{{selectedImage ? selectedImage.name : 'Choose File' }}</label>
                     </div>
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" (click)="onImageUpload()" [disabled] = "!selectedImage">Upload
+                        <button class="btn btn-outline-secondary" type="button" (click)="onImageUpload()"
+                                [disabled]="!selectedImage">Upload
                         </button>
                     </div>
                 </div>
@@ -25,18 +26,22 @@
                         <li>
                             <input type="text" placeholder="{{profile.name}}" [(ngModel)]="profile.name"
                                    #name='ngModel' minlength="2">
-                            <button class="updatebtn" [disabled]="!name.valid" (click)="updateProfileData('name', ['email'])">Change</button>
+                            <button class="updatebtn" [disabled]="!name.valid"
+                                    (click)="updateProfileData('name', ['email'])">Change
+                            </button>
                             <div [hidden]="name.valid" class="alert-danger">Too short name</div>
                         </li>
                         <li>
                             <input type="email" placeholder="{{profile.email}}" [(ngModel)]="profile.email"
                                    pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" #email="ngModel">
-                            <button class="updatebtn" [disabled]="!name.valid" (click)="updateProfileData('email', ['name'])">Change</button>
+                            <button class="updatebtn" [disabled]="!name.valid"
+                                    (click)="updateProfileData('email', ['name'])">Change
+                            </button>
                             <div [hidden]="email.valid" class="alert-danger">Incorrect email!</div>
                         </li>
                         <li>
                             <input type="text" placeholder="Phone Number">
-                            <button type="button" class="updatebtn" disabled >Change</button>
+                            <button type="button" class="updatebtn" disabled>Change</button>
                         </li>
                         <hr>
                         <li>
@@ -63,15 +68,35 @@
                                     <p *ngIf="confirmPassword.errors.notMatch">Password doesn't match</p>
                                 </div>
                                 <button type="submit" class="updatebtn">Submit</button>
-                                <h5 style="color: green;" *appChangePassword= "isVisible">Password changed successfully!</h5>
+                                <h5 style="color: green;" *appChangePassword="isVisible">Password changed
+                                    successfully!</h5>
                             </form>
                         </li>
                         <hr>
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+            <div class="statistics-container">
+                <div class="userdata-container">
+                    <ul>
+                        <li>
+                            <label>Articles</label>
+                            <span>0</span>
+                        </li>
+                        <li>
+                            <label>Comments</label>
+                            <span>0</span>
+                        </li>
+                        <li>
+                            <label>Likes</label>
+                            <span>0</span>
+                        </li>
+                        <li>
+                            <label>Friends</label>
+                            <span>0</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
 

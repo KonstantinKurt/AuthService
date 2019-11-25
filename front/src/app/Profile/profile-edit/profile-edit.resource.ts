@@ -41,6 +41,6 @@ export class ProfileEditResource {
     }
 
     updatePassword(updatePasswordData: object): Observable<object> {
-        return this.httpClient.patch(`${process.env.hostUrl}/auth`, updatePasswordData, this.httpOptions);
+        return this.httpClient.patch(`${environment.hostUrl}auth`, updatePasswordData, this.httpOptions);
     }
 }

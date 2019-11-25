@@ -80,6 +80,7 @@ export class ProfileEditComponent implements OnInit {
                             setTimeout(() => {
                                 this.isVisible = false;
                             }, 5000);
+                            this.changePasswordForm.reset();
                         }
                     },
                     (err) => {

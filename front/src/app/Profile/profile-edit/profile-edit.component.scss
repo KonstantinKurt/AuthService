@@ -127,5 +127,51 @@
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
-  box-shadow: none ;
+  box-shadow: none;
+}
+
+.statistics-container {
+  width: 25%;
+  min-width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border: red solid 2px;
+  margin: 5px 5px 5px 5px;
+
+  .userdata-container {
+    width: 95%;
+    height: 70%;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 5%;
+      width: 90%;
+    }
+
+    li {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    };
+
+    label {
+      color: blue;
+      font-size: 20px;
+      width: 150px;
+      display: block;
+    }
+
+    span {
+      margin-left: auto;
+    }
+  }
+}
+
+.view-statistics {
+
 }
