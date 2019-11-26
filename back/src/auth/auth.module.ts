@@ -12,14 +12,15 @@ import {ProfileEntity} from '../profile/entity/profile.entity';
 import {LoggerMiddleware} from '../middlewares/logger.middleware';
 import {JwtStrategy} from './strategy/jwt.strategy';
 import {UserEntity} from './entity/user.entity';
-import apply = Reflect.apply;
 import {CheckEmailMiddleware} from './middleware/check-email.middleware';
+import {IpUrlEntity} from './entity/ip-url.entity';
 
 @Module({
     imports: [
         TypeOrmModule.forFeature([
             UserEntity,
             ProfileEntity,
+            IpUrlEntity,
         ]),
         JwtModule.register({
             secret: process.env.AUTH_SECRET,

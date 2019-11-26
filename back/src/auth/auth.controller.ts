@@ -37,7 +37,7 @@ export class AuthController {
     @ApiResponse({status: 200, description: 'User authorized successfully!'})
     @ApiNotFoundResponse({description: 'User not found!'})
     @HttpCode(200)
-    async Login(@Body() data: LoginDto, @IpAddressCheck() ip: number, @Req() req): Promise<object> {
+    async Login(@Body() data: LoginDto, @IpAddressCheck() ip: string, @Req() req): Promise<object> {
         return  await this.authService.login(data, ip, req.headers['user-agent'].split(' ')[8], req.device.type);
     }
 
@@ -47,6 +47,7 @@ export class AuthController {
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
     @HttpCode(201)
     async create(@Body() userData: RegisterDto,  @IpAddressCheck() ip: string): Promise<object> {
+        Logger.log(ip);
         return await this.authService.register(userData, ip);
 
     }

@@ -8,7 +8,7 @@ import {InjectRepository} from '@nestjs/typeorm';
 import {ProfileEntity} from './entity/profile.entity';
 import {Repository} from 'typeorm';
 import {JwtService} from '@nestjs/jwt';
-
+import * as fs from 'fs';
 @Injectable()
 export class ProfileService {
     constructor(
@@ -49,10 +49,19 @@ export class ProfileService {
         try {
             const userData: any = await this.jwtService.decode(token);
             const serveUrl = `http://localhost:7000/profile/avatar/${avatarId}`;
+            const oldAvatarName = await this.profileRepository.findOne({user: userData.id}, {select: ['avatar']});
             const result = await this.profileRepository.update(
-                {user: userData.id},
-                {avatar: serveUrl},
+                {user: userData.id}, {avatar: serveUrl},
             );
+            const oldAvatarFileName = oldAvatarName.avatar.split('/')[5];
+            if (oldAvatarFileName !== 'default_avatar.jpg') {
+                fs.unlink(`src/public/avatars/${oldAvatarFileName}`, (error) => {
+                    if (error) {
+                        Logger.error(error);
+                    }
+                });
+            }
+
             if (!result) {
                 throw new NotFoundException({
                     message: `wrong token data`,

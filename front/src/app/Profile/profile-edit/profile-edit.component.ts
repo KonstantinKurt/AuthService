@@ -3,7 +3,6 @@ import {ProfileEditService} from './profile-edit.service';
 import {Router} from '@angular/router';
 import {Profile} from './model/profile.model';
 import {environment} from '../../../environments/environment';
-import {User} from '../../Auth/register/model/user.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {confirmPasswordValidator} from '../../_helpers/confirm-password-validator';
 import {UpdateProfileDto} from '../../../../../back/src/profile/dto/update-profile.dto';
@@ -93,8 +92,9 @@ export class ProfileEditComponent implements OnInit {
         this.profileEditService.getCurrentProfile()
             .subscribe(
                 (response: any) => {
-                    console.log(response);
                     this.profile = response.body.result;
+                    console.log(this.profile);
+
                 },
                 (err) => {
                     console.log(err);

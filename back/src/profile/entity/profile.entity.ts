@@ -4,8 +4,9 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     Unique,
-    CreateDateColumn,
+    CreateDateColumn, OneToOne, JoinColumn,
 } from 'typeorm';
+import {UserEntity} from '../../auth/entity/user.entity';
 
 @Entity('Profile')
 // @Unique(['email'])  // doesnt work, test if fixed
@@ -21,10 +22,14 @@ export class ProfileEntity extends BaseEntity {
 
     @Column({
         type: 'text',
-        default: 'default_avatar.jpg',
+        default: `${process.env.DEV_APP_URL}/profile/avatar/default_avatar.jpg`,
     })
     avatar: string;
 
+    @OneToOne(type => UserEntity, user => user.profile)
+    @JoinColumn()
+    user: UserEntity;
+
     @CreateDateColumn()
-    createdAt: string;
+    createdAt: Date;
 }

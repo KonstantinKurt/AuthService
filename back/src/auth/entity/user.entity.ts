@@ -4,7 +4,9 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     Unique,
-    CreateDateColumn, OneToOne, JoinColumn,
+    CreateDateColumn,
+    OneToOne,
+    JoinColumn,
 } from 'typeorm';
 import {ProfileEntity} from '../../profile/entity/profile.entity';
 
@@ -19,7 +21,10 @@ export class UserEntity extends BaseEntity {
     @Column('text')
     email: string;
 
-    @Column('text')
+    @Column({
+        type: 'text',
+        // select: false,
+    })
     password: string;
 
     @Column({
@@ -30,14 +35,13 @@ export class UserEntity extends BaseEntity {
 
     @Column({
         type: 'text',
-        array: true
+        array: true,
     })
     ips: string[];
 
-    @OneToOne(type => ProfileEntity)
-    @JoinColumn()
+    @OneToOne(type => ProfileEntity, profile => profile.user)
     profile: ProfileEntity;
 
     @CreateDateColumn()
-    createdAt: string;
+    createdAt: Date;
 }
