@@ -1,17 +1,18 @@
 import {MiddlewareConsumer, Module, RequestMethod} from '@nestjs/common';
+import {ArticleService} from './article.service';
+import {ArticleController} from './article.controller';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import {ProfileController} from './profile.controller';
-import {ProfileService} from './profile.service';
-import {ProfileEntity} from './entity/profile.entity';
+import {ProfileEntity} from '../profile/entity/profile.entity';
 import {JwtModule} from '@nestjs/jwt';
 import {PassportModule} from '@nestjs/passport';
+import {ArticleEntity} from './entity/article.entity';
 import {LoggerMiddleware} from '../middlewares/logger.middleware';
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([
-            ProfileEntity,
-        ]),
+    imports: [TypeOrmModule.forFeature([
+        ProfileEntity,
+        ArticleEntity,
+    ]),
         JwtModule.register({
             secret: process.env.AUTH_SECRET,
             signOptions: {
@@ -20,20 +21,14 @@ import {LoggerMiddleware} from '../middlewares/logger.middleware';
         }),
         PassportModule.register({
             defaultStrategy: 'jwt',
-        }),
-
-    ],
-    controllers: [
-        ProfileController,
-    ],
-    providers: [
-        ProfileService,
-    ],
+        })],
+    providers: [ArticleService],
+    controllers: [ArticleController],
 })
-export class ProfileModule {
+export class ArticleModule {
     configure(consumer: MiddlewareConsumer) {
         consumer
             .apply(LoggerMiddleware)
-            .forRoutes({path: 'profile', method: RequestMethod.ALL});
+            .forRoutes({path: 'article', method: RequestMethod.ALL});
     }
 }

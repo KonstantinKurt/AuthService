@@ -6,6 +6,7 @@ import {TypeOrmModule} from '@nestjs/typeorm';
 import {MailerModule} from '@nest-modules/mailer';
 import {typeOrm} from './config/typeorm';
 import {ProfileModule} from './profile/profile.module';
+import { ArticleModule } from './article/article.module';
 import * as path from 'path';
 import transport from './config/transport';
 import mongo from './config/mongo';
@@ -19,6 +20,7 @@ import mongo from './config/mongo';
         }),
         AuthModule,
         ProfileModule,
+        ArticleModule,
     ],
     controllers: [],
     providers: [],

@@ -14,6 +14,7 @@ import {getHash} from './helpers/hash-gen.helper';
 import {UpdatePasswordDto} from './dto/update-password.dto';
 import {UserEntity} from './entity/user.entity';
 import {IpUrlEntity} from './entity/ip-url.entity';
+import {getNewIpRender} from './helpers/newip-render.helper';
 
 @Injectable()
 export class AuthService {
@@ -115,10 +116,10 @@ export class AuthService {
                 await userForIpAdd.ips.push(ipUrl.ip);
                 await userForIpAdd.save();
                 await this.ipUrlRepository.delete({id: ipUrl.id});
-                return `Ip pushed to user's ip array`;
+                return getNewIpRender(true);
             } else {
                 await this.ipUrlRepository.delete(ipUrl);
-                return `Link is expired`;
+                return getNewIpRender(false);
             }
         } catch (error) {
             throw new HttpException({
@@ -126,7 +127,6 @@ export class AuthService {
             }, 500);
         }
     }
-
 
     async updatePassword(token: string, updatePassword: UpdatePasswordDto) {
         try {

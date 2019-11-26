@@ -4,9 +4,12 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     Unique,
-    CreateDateColumn, OneToOne, JoinColumn,
+    CreateDateColumn,
+    OneToOne,
+    JoinColumn, OneToMany,
 } from 'typeorm';
 import {UserEntity} from '../../auth/entity/user.entity';
+import {ArticleEntity} from '../../article/entity/article.entity';
 
 @Entity('Profile')
 // @Unique(['email'])  // doesnt work, test if fixed
@@ -29,6 +32,11 @@ export class ProfileEntity extends BaseEntity {
     @OneToOne(type => UserEntity, user => user.profile)
     @JoinColumn()
     user: UserEntity;
+
+    @OneToMany(type => ArticleEntity, article => article.author, {
+        cascade: true,
+    })
+    articles: ArticleEntity[];
 
     @CreateDateColumn()
     createdAt: Date;
