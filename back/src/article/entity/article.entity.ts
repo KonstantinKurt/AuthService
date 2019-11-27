@@ -20,6 +20,12 @@ export class ArticleEntity extends BaseEntity {
     @Column('text')
     content: string;
 
+    @Column({
+        type: 'text',
+        default: ``,
+    })
+    photo: string;
+
     @ManyToOne(type => ProfileEntity, profile => profile.articles)
     author: ProfileEntity;
 

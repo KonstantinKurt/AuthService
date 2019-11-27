@@ -40,7 +40,7 @@ export class ArticleController {
     @UseGuards(AuthGuard('jwt'))
     @ApiBearerAuth()
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
-    @ApiOperation({title: 'Create article'})
+    @ApiOperation({title: 'Create Article'})
     @ApiResponse({status: 200, description: 'Article created successfully'})
     @HttpCode(201)
     async create(@Req() req, @Body() articleData: ArticleDto): Promise<any> {
@@ -52,7 +52,7 @@ export class ArticleController {
     @UseGuards(AuthGuard('jwt'))
     @ApiBearerAuth()
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
-    @ApiOperation({title: 'Delete own article'})
+    @ApiOperation({title: 'Delete own Article'})
     @ApiResponse({status: 200, description: 'Article deleted successfully'})
     @HttpCode(200)
     async deleteOwnArticle(@Param('id') id: string, @Req() req): Promise<any> {

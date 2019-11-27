@@ -172,6 +172,23 @@
   }
 }
 
-.view-statistics {
+.other-container{
+  width: 95%;
+  height: auto;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  border: solid red 2px;
+}
+
+.clock-container{
+  display: flex;
+  align-self: flex-start;
+  border: solid 2px #52a8ff;
+  background-color: #e1eff5;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #3A3939;
+  margin:5px 5px 5px auto;
+  padding: 3px;
 
 }

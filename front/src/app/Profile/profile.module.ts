@@ -10,6 +10,7 @@ import {ProfileEditResource} from './profile-edit/profile-edit.resource';
 import { ProfileSidebarComponent } from '../profile-sidebar/profile-sidebar.component';
 import { AvatarChangeSizeDirective } from './profile-edit/directives/avatar-change-size.directive';
 import { ChangePasswordDirective } from './profile-edit/directives/change-password.directive';
+import {ClockComponent} from '../clock/clock.component';
 
 
 
@@ -18,6 +19,7 @@ import { ChangePasswordDirective } from './profile-edit/directives/change-passwo
         ProfileNavbarComponent,
         ProfileEditComponent,
         ProfileSidebarComponent,
+        ClockComponent,
         AvatarChangeSizeDirective,
         ChangePasswordDirective,
     ],
@@ -27,7 +29,6 @@ import { ChangePasswordDirective } from './profile-edit/directives/change-passwo
         FormsModule,
         ProfileRoutingModule,
         ReactiveFormsModule,
-
     ],
     providers: [
       ProfileEditService,
