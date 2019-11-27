@@ -93,7 +93,9 @@ export class AuthService {
                 await newUser.ips.push(ip);
                 const resultUser = await newUser.save();
                 return {
-                    user: resultUser,
+                    user_data: {
+                        id: resultUser.id,
+                    },
                 };
             }
         } catch (error) {
@@ -110,9 +112,9 @@ export class AuthService {
             const ipUrl = await this.ipUrlRepository.findOne({
                 hash,
                 createdAt: LessThan(expiredParam),
-            }, { relations: ['user']});
+            }, {relations: ['user']});
             if (ipUrl) {
-                const userForIpAdd  = await this.userRepository.findOne({ id: ipUrl.user.id});
+                const userForIpAdd = await this.userRepository.findOne({id: ipUrl.user.id});
                 await userForIpAdd.ips.push(ipUrl.ip);
                 await userForIpAdd.save();
                 await this.ipUrlRepository.delete({id: ipUrl.id});
@@ -132,7 +134,7 @@ export class AuthService {
         try {
             const userData: any = await this.jwtService.decode(token);
             const userToUpdate = await this.userRepository.findOne({id: userData.id});
-            const comparePassword = await bcrypt.compareSync( updatePassword.oldPassword, userToUpdate.password);
+            const comparePassword = await bcrypt.compareSync(updatePassword.oldPassword, userToUpdate.password);
             if (comparePassword) {
                 const newPasswordCrypt = await bcrypt.hashSync(updatePassword.newPassword, +process.env.USER_PASSWORD_SALT);
                 await this.userRepository.update({id: userData.id}, {password: newPasswordCrypt});

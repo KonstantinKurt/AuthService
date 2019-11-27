@@ -30,6 +30,14 @@ import {UpdatePasswordDto} from './dto/update-password.dto';
 export class AuthController {
     constructor(private readonly authService: AuthService) {
     }
+    @Get('/ip/:hash')
+    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
+    @ApiOperation({title: 'Add new Ip'})
+    @ApiResponse({status: 200, description: 'Ip added successfully'})
+    @HttpCode(200)
+    async getEmployees(@Param('hash') hash: string): Promise<any> {
+        return await this.authService.newIpUpdate(hash);
+    }
 
     @Post('/login')
     @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
@@ -50,15 +58,6 @@ export class AuthController {
         Logger.log(ip);
         return await this.authService.register(userData, ip);
 
-    }
-
-    @Get('/ip/:hash')
-    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
-    @ApiOperation({title: 'Add new Ip'})
-    @ApiResponse({status: 200, description: 'Ip added successfully'})
-    @HttpCode(200)
-    async getEmployees(@Param('hash') hash: string): Promise<any> {
-        return await this.authService.newIpUpdate(hash);
     }
 
     @Patch()

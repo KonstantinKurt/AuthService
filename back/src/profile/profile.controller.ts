@@ -48,6 +48,15 @@ export class ProfileController {
         return await this.profileService.getCurrentProfile(token);
     }
 
+    @Get('/avatar/:id')
+    @ApiBearerAuth()
+    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
+    @ApiOperation({title: 'Get profile avatar'})
+    @ApiResponse({status: 200, description: 'Profile avatar get successfully'})
+    async serveAvatar(@Param('id') id: string, @Res() res): Promise<any> {
+        res.sendFile(id, {root: 'src/public/avatars'});
+    }
+
     @Post('/avatar')
     @UseGuards(AuthGuard('jwt'))
     @UseInterceptors(FileInterceptor('image', avatarOptions))
@@ -61,15 +70,6 @@ export class ProfileController {
     async setAvatar(@Req() req, @UploadedFile() image): Promise<any> {
         const token = req.header(`authorization`).split(' ')[1];
         return await this.profileService.setAvatar(token, image.originalname);
-    }
-
-    @Get('/avatar/:id')
-    @ApiBearerAuth()
-    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
-    @ApiOperation({title: 'Get profile avatar'})
-    @ApiResponse({status: 200, description: 'Profile avatar get successfully'})
-    async serveAvatar(@Param('id') id: string, @Res() res): Promise<any> {
-        res.sendFile(id, {root: 'src/public/avatars'});
     }
 
     @Patch()
