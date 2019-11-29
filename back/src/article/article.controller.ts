@@ -3,7 +3,7 @@ import {
     Controller, Delete, Get,
     HttpCode, Logger, Param,
     Post,
-    Req,
+    Req, Res,
     UseGuards,
 } from '@nestjs/common';
 import {
@@ -59,6 +59,15 @@ export class ArticleController {
         Logger.log(id);
         const token = req.header(`authorization`).split(' ')[1];
         return await this.articleService.deleteOwnArticle(token, id);
+    }
+
+    @Get('/photo/:id')
+    @ApiBearerAuth()
+    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
+    @ApiOperation({title: 'Get profile avatar'})
+    @ApiResponse({status: 200, description: 'Profile avatar get successfully'})
+    async serveAvatar(@Param('id') id: string, @Res() res): Promise<any> {
+        res.sendFile(id, {root: 'src/public/articles'});
     }
 
 }

@@ -6,6 +6,7 @@
 
   ul {
     margin: 5px 5px 5px 5px;
+    padding: 0;
     width: 100%;
     height: auto;
     list-style: none;
@@ -14,11 +15,52 @@
     border: solid 2px #52a8ff;
     box-shadow: 5px 5px 5px #3A3939;
   }
+
+  li {
+  }
+
+  .article-card {
+    width: 96%;
+    height: 100px;
+    margin-left: 2%;
+    margin-top: 1%;
+    border-radius: 5px;
+  }
+
 }
 
 .crud-buttons-container {
-  border: red solid 2px;
   display: flex;
-  width: 30%;
+  flex-direction: column;
+  border: red solid 2px;
+  width: 40%;
   margin: 5px 5px 5px 5px;
+  .button{
+    width: 70%;
+    margin: 5% 0 0 1%;
+  }
+}
+
+.article-card {
+  display: flex;
+  border: solid 1px #52a8ff;
+ .article-info{
+   width: auto;
+   margin: 10px;
+   overflow: hidden;
+ }
+  img {
+    margin: 10px;
+    width: 10%;
+    min-width: 10%;
+    min-height: 80px;
+  }
+}
+
+.article-info{
+
+}
+
+.selected{
+  border: 3px solid green;
 }

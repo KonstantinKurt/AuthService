@@ -22,7 +22,7 @@ export class ArticleEntity extends BaseEntity {
 
     @Column({
         type: 'text',
-        default: ``,
+        default: `${process.env.DEV_APP_URL}/article/photo/default_article.png`,
     })
     photo: string;
 

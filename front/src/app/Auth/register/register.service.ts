@@ -3,9 +3,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {RegisterDTO} from './dto/register.dto';
 import {RegisterResource} from './register.resource';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RegisterService {
   userNameSource = new BehaviorSubject('default name');
   constructor(

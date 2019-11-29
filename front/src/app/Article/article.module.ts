@@ -9,6 +9,7 @@ import {ProfileEditResource} from '../Profile/profile-edit/profile-edit.resource
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MyArticleService} from './my-article/my-article.service';
+import {MyArticleResource} from './my-article/my-article.resource';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import {MyArticleService} from './my-article/my-article.service';
         ProfileEditService,
         ProfileEditResource,
         MyArticleService,
-        MyArticleComponent,
+        MyArticleResource,
     ],
 })
 export class ArticleModule {

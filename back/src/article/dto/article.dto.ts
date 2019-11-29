@@ -22,8 +22,6 @@ export class ArticleDto {
     readonly content: string;
 
     @ApiModelProperty()
-    @IsNotEmpty()
-    @IsString()
     readonly photo: string;
 
     @ApiModelProperty()

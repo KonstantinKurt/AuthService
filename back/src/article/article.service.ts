@@ -14,7 +14,6 @@ export class ArticleService {
         @InjectRepository(ArticleEntity)
         private readonly articleRepository: Repository<ArticleEntity>,
         private readonly jwtService: JwtService,
-
     ) {
     }
 
@@ -23,10 +22,16 @@ export class ArticleService {
             const userData: any = await this.jwtService.decode(token);
             const author = await this.profileRepository.findOne({user: userData.id});
             articleData.author = await author;
-            const newArticle = await this.articleRepository.create(articleData);
+            Logger.log(articleData);
+            const newArticle = await this.articleRepository.create({
+                name: articleData.name,
+                content: articleData.content,
+                photo: articleData.photo || `${process.env.DEV_APP_URL}/article/photo/default_article.png`,
+                author,
+            });
             newArticle.save();
             return {
-                result : newArticle,
+                result: newArticle,
             };
         } catch (error) {
             throw new HttpException({
@@ -39,7 +44,14 @@ export class ArticleService {
         try {
             const userData: any = await this.jwtService.decode(token);
             const author = await this.profileRepository.findOne({user: userData.id}, {relations: ['articles']});
-            return author;
+            return {
+                result: await author.articles.map(el => ({
+                    name: el.name,
+                    photo: el.photo,
+                    createdAt: el.createdAt,
+                    content: el.content.slice(0, 50),
+                })),
+            };
         } catch (error) {
             throw new HttpException({
                 error: error.message,
@@ -54,7 +66,7 @@ export class ArticleService {
             const articleToDelete = await this.articleRepository.delete({id});
             return {
                 message: `Article deleted successfully!`,
-            }
+            };
         } catch (error) {
             throw new HttpException({
                 error: error.message,

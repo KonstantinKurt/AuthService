@@ -3,15 +3,24 @@
     <div class="profile-container">
         <app-profile-sidebar></app-profile-sidebar>
         <div class="data-container">
-             <div class="article-list-container">
-                  <ul>
-                      <li>
-
-                      </li>
-                  </ul>
-             </div>
+            <div class="article-list-container">
+                <ul>
+                    <li *ngFor="let article of articles" (click)="getArticleFromList(article)">
+                        <div class="article-card" [class.selected] = "article === selectedArticle">
+                            <img src="{{article.photo}}">
+                            <div class="article-info">
+                                <h4><span>Title: {{article.name}} </span><span>Created: {{article.createdAt | date }}</span>
+                                </h4>
+                                <h5>{{article.content}}</h5>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <div class="crud-buttons-container">
-
+                <button class="button">Create new</button>
+                <button class="button">Update</button>
+                <button class="button">Delete</button>
             </div>
         </div>
     </div>

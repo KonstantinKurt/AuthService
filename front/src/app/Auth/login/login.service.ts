@@ -3,9 +3,7 @@ import {LoginResource} from './login.resource';
 import {Observable} from 'rxjs';
 import {LoginDTO} from './dto/login.dto';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LoginService {
 
   constructor(
