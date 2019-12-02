@@ -11,14 +11,14 @@
                             <div class="article-info">
                                 <h4><span>Title: {{article.name}} </span><span>Created: {{article.createdAt | date }}</span>
                                 </h4>
-                                <h5>{{article.content}}</h5>
+                                <h5>{{article.content}}</h5><br/>
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="crud-buttons-container">
-                <button class="button">Create new</button>
+                <button class="button" (click)="createArticle()">Create new</button>
                 <button class="button">Update</button>
                 <button class="button">Delete</button>
             </div>

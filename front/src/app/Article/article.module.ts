@@ -10,11 +10,15 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MyArticleService} from './my-article/my-article.service';
 import {MyArticleResource} from './my-article/my-article.resource';
+import {CreateArticleComponent} from './create-article/create-article.component';
+import {CreateArticleService} from './create-article/create-article.service';
+import {CreateArticleResource} from './create-article/create-article.resource';
 
 
 @NgModule({
     declarations: [
         MyArticleComponent,
+        CreateArticleComponent,
         ProfileNavbarComponent,
         ProfileSidebarComponent,
     ],
@@ -29,6 +33,8 @@ import {MyArticleResource} from './my-article/my-article.resource';
         ProfileEditResource,
         MyArticleService,
         MyArticleResource,
+        CreateArticleService,
+        CreateArticleResource,
     ],
 })
 export class ArticleModule {
