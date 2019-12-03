@@ -3,5 +3,4 @@ export class Article {
     public content: string;
     public author: string;
     public photo: string;
-    public createdAt: Date;
 }

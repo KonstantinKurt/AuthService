@@ -3,7 +3,7 @@ import {Profile} from '../../Profile/profile-edit/model/profile.model';
 import {ProfileEditService} from '../../Profile/profile-edit/profile-edit.service';
 import {Article} from '../model/article.model';
 import {MyArticleService} from './my-article.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-my-article',

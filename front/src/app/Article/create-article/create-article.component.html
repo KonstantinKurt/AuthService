@@ -1,1 +1,14 @@
-<p>create-article works!</p>
+<div class="fullsize-container">
+    <app-profile-navbar [profile]="profile"></app-profile-navbar>
+    <div class="profile-container">
+        <app-profile-sidebar></app-profile-sidebar>
+        <div class="editor-container">
+            <h1>Create new article</h1>
+            <ckeditor #editor [editor]="Editor" [config]="editorConfig"  (change)="onChange($event)"
+            ></ckeditor>
+            <div class="savebutton-container">
+                <button class="save_button" type="submit" (click)="createArticle()">Create</button>
+            </div>
+        </div>
+    </div>
+</div>

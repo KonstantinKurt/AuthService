@@ -13,6 +13,7 @@ import {MyArticleResource} from './my-article/my-article.resource';
 import {CreateArticleComponent} from './create-article/create-article.component';
 import {CreateArticleService} from './create-article/create-article.service';
 import {CreateArticleResource} from './create-article/create-article.resource';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {CreateArticleResource} from './create-article/create-article.resource';
         ArticleRoutingModule,
         FormsModule,
         HttpClientModule,
+        CKEditorModule
     ],
     providers: [
         ProfileEditService,

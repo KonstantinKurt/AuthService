@@ -1,0 +1,55 @@
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  padding: 5px;
+  border: solid 2px #52a8ff;
+  background-color: #e1eff5;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #3A3939;
+  flex-grow: 1;
+  margin: 0 5px 5px 0;
+  color: #52a8ff;
+
+  .savebutton-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    margin-top: 5px;
+
+    button {
+      width: 15%;
+      margin-right: 12%;
+    }
+  }
+
+}
+
+
+:host ::ng-deep .ck-editor__editable_inline {
+  width: 80rem;
+  min-height: 40rem;
+}
+
+.save_button {
+  text-decoration: none;
+  border: solid 2px #52a8ff;
+  font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
+  color: #52a8ff;
+  background-color: #e1eff5;
+}
+
+.save_button:hover {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  background-color: #81cbff;
+  border: 2px solid blue;
+  color: blue;
+}
+
+.save_button:active {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  border: inset;
+}
