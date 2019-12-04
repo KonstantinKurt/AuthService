@@ -1,14 +1,27 @@
 <div class="fullsize-container">
-    <app-profile-navbar [profile]="profile"></app-profile-navbar>
+    <app-navbar [profile]="profile"></app-navbar>
     <div class="profile-container">
-        <app-profile-sidebar></app-profile-sidebar>
+        <app-sidebar></app-sidebar>
         <div class="editor-container">
-            <h1>Create new article</h1>
+            <h2>Create new article</h2>
+            <div class="title-container">
+                <label for="titleInput">Title</label>
+                <input type="text" id="titleInput" [(ngModel)]="article.title"
+                       [class.wrong-title]="titleRequired" (input)="titleRequired = false" on>
+            </div>
             <ckeditor #editor [editor]="Editor" [config]="editorConfig"  (change)="onChange($event)"
             ></ckeditor>
-            <div class="savebutton-container">
-                <button class="save_button" type="submit" (click)="createArticle()">Create</button>
+            <div class="controls-container">
+                <div class="notification">
+                    <span *ngIf="createdSuccessful" class="successful-create">Article created successfully!</span>
+                    <span *ngIf="titleRequired" class="unsuccessful-create">Article title required!</span>
+                </div>
+                <div class="savebutton-container">
+                    <button class="save_button" type="submit" [disabled]="!this.article.content"
+                             (click)="createArticle()">Create</button>
+                </div>
             </div>
+
         </div>
     </div>
 </div>

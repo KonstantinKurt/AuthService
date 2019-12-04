@@ -2,19 +2,13 @@ import {ApiModelProperty} from '@nestjs/swagger';
 import {
     IsString,
     IsNotEmpty,
-    Length,
 } from 'class-validator';
-import {ProfileEntity} from '../../profile/entity/profile.entity';
 
 export class ArticleDto {
-    @ApiModelProperty({
-        minLength: 8,
-        type: String,
-    })
+    @ApiModelProperty()
     @IsNotEmpty()
     @IsString()
-    @Length(8)
-    readonly name: string;
+    readonly title: string;
 
     @ApiModelProperty()
     @IsNotEmpty()
@@ -23,7 +17,4 @@ export class ArticleDto {
 
     @ApiModelProperty()
     readonly photo: string;
-
-    @ApiModelProperty()
-    author: ProfileEntity;
 }

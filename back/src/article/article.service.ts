@@ -21,18 +21,16 @@ export class ArticleService {
         try {
             const userData: any = await this.jwtService.decode(token);
             const author = await this.profileRepository.findOne({user: userData.id});
-            articleData.author = await author;
-            Logger.log(articleData);
             const newArticle = await this.articleRepository.create({
-                name: articleData.name,
+                title: articleData.title,
                 content: articleData.content,
                 photo: articleData.photo || `${process.env.DEV_APP_URL}/article/photo/default_article.png`,
                 author,
             });
-            newArticle.save();
-            return {
-                result: newArticle,
-            };
+            return newArticle.save();
+            // return {
+            //     result: newArticle,
+            // };
         } catch (error) {
             throw new HttpException({
                 error: error.message,
@@ -46,7 +44,7 @@ export class ArticleService {
             const author = await this.profileRepository.findOne({user: userData.id}, {relations: ['articles']});
             return {
                 result: await author.articles.map(el => ({
-                    name: el.name,
+                    title: el.title,
                     photo: el.photo,
                     createdAt: el.createdAt,
                     content: el.content.slice(0, 50),

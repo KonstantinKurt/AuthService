@@ -5,6 +5,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {ckeEditorConfig} from '../../_helpers/ckeditor-config';
 import {Article} from '../model/article.model';
 import {ChangeEvent, CKEditorComponent} from '@ckeditor/ckeditor5-angular';
+import {CreateArticleService} from './create-article.service';
 
 @Component({
     selector: 'app-create-article',
@@ -17,15 +18,18 @@ import {ChangeEvent, CKEditorComponent} from '@ckeditor/ckeditor5-angular';
 })
 export class CreateArticleComponent implements OnInit {
     private profile: Profile;
-    article: Article;
+    private article: Article;
     private Editor = ClassicEditor;
     private editorConfig = ckeEditorConfig;
+    private createdSuccessful = false;
+    private titleRequired = false;
 
     @ViewChild('editor', {static: false})
     editorComponent: CKEditorComponent;
 
     constructor(
         private profileEditService: ProfileEditService,
+        private createArticleService: CreateArticleService,
     ) {
         this.profile = new Profile();
         this.article = new Article();
@@ -50,9 +54,25 @@ export class CreateArticleComponent implements OnInit {
         this.article.content = editor.getData();
     }
 
-    createArticle() {
-       console.log(this.editorComponent.editorInstance);
-
+   async createArticle() {
+        if (!this.article.title) {
+            this.titleRequired = true;
+        }
+        this.article.photo = '';
+        console.log(this.article);
+        this.createArticleService.createArticle(this.article)
+            .subscribe((response: any) => {
+                    console.log(response);
+                    if (response.status === 201) {
+                        this.createdSuccessful = true;
+                        setTimeout(() => {
+                            this.createdSuccessful = false;
+                        }, 4000);
+                    }
+                },
+                (err) => {
+                    console.log(err);
+                });
     }
 
 }

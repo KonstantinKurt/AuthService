@@ -1,6 +1,8 @@
 export class Article {
-    public name: string;
+    public id: string;
+    public title: string;
     public content: string;
-    public author: string;
     public photo: string;
+    public createdAt: Date;
+
 }

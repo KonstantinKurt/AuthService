@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
+import {Article} from '../model/article.model';
 
 @Injectable()
 export class CreateArticleResource {
@@ -28,6 +29,9 @@ export class CreateArticleResource {
         };
     }
 
+     createArticle(article: Article): Observable<object> {
+        return this.httpClient.post(this.hostUrl, article, this.httpOptions);
+    }
 
 
 }

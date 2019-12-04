@@ -1,6 +1,6 @@
 export const ckeEditorConfig =  {
-    placeholder: 'Testing',
-    removePlugins: [ 'Image', '' ],
+    placeholder: 'Insert your text here',
+    removePlugins: [ '', '' ],
     removeButtons: [ 'Imagebutton',  ],
 
 };

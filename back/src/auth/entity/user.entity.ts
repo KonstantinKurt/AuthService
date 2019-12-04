@@ -18,7 +18,10 @@ export class UserEntity extends BaseEntity {
     @Column('text')
     name: string;
 
-    @Column('text')
+    @Column({
+        type: 'text',
+        unique: true,
+    })
     email: string;
 
     @Column({

@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {Profile} from '../../Profile/profile-edit/model/profile.model';
 
 @Component({
-    selector: 'app-profile-navbar',
+    selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: [
         './navbar.component.scss',

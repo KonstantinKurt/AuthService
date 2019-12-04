@@ -47,6 +47,7 @@ export class MyArticleComponent implements OnInit {
         this.myArticleService.getAllProfileArticles()
             .subscribe(
                 (response: any) => {
+                    console.log(response);
                     this.articles = response.body.result.sort((a, b) => {
                         return +(new Date(b.createdAt)) - +(new Date(a.createdAt));
                     });

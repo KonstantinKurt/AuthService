@@ -1,7 +1,7 @@
 <div class="fullsize-container">
-    <app-profile-navbar [profile]="profile"></app-profile-navbar>
+    <app-navbar [profile]="profile"></app-navbar>
     <div class="profile-container">
-        <app-profile-sidebar></app-profile-sidebar>
+        <app-sidebar></app-sidebar>
         <div class="data-container">
             <div class="article-list-container">
                 <ul>
@@ -9,9 +9,10 @@
                         <div class="article-card" [class.selected] = "article === selectedArticle">
                             <img src="{{article.photo}}">
                             <div class="article-info">
-                                <h4><span>Title: {{article.name}} </span><span>Created: {{article.createdAt | date }}</span>
+                                <h4><p>Title: <span style="color: blue">{{article.title}}</span> </p>
+                                    <span>Created: <span style="color: blue">{{article.createdAt | date }}</span></span>
                                 </h4>
-                                <h5>{{article.content}}</h5><br/>
+<!--                                <h5>{{article.content}}</h5><br/>-->
                             </div>
                         </div>
                     </li>

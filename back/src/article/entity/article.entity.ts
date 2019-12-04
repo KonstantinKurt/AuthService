@@ -4,8 +4,7 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     CreateDateColumn,
-    OneToOne,
-    JoinColumn, ManyToOne,
+    ManyToOne,
 } from 'typeorm';
 import {ProfileEntity} from '../../profile/entity/profile.entity';
 
@@ -15,7 +14,7 @@ export class ArticleEntity extends BaseEntity {
     id: string;
 
     @Column('text')
-    name: string;
+    title: string;
 
     @Column('text')
     content: string;

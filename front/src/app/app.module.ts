@@ -7,6 +7,7 @@ import {AboutModule} from './About/about.module';
 import {AuthGuard} from './_guards/auth.guard';
 import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
 import {UnauthorizedModule} from './common/unauthorized/unauthorized.module';
+import {AuthNavbarModule} from './Auth/auth-navbar/auth-navbar.module';
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import {UnauthorizedModule} from './common/unauthorized/unauthorized.module';
     ],
     imports: [
         BrowserModule,
+        AuthNavbarModule,
         AppRoutingModule,
         ReactiveFormsModule,
         AboutModule,
