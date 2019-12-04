@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
     styleUrls: [
         './my-article.component.scss',
         '../../Profile/profile-edit/profile-edit.component.scss',
-        '../../profile-navbar/profile-navbar.component.scss',
+        '../../common/navbar/navbar.component.scss',
     ]
 })
 export class MyArticleComponent implements OnInit {

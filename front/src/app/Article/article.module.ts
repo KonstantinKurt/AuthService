@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MyArticleComponent} from './my-article/my-article.component';
 import {ArticleRoutingModule} from './article-routing.module';
-import {ProfileNavbarComponent} from '../profile-navbar/profile-navbar.component';
-import {ProfileSidebarComponent} from '../profile-sidebar/profile-sidebar.component';
+import {NavbarComponent} from '../common/navbar/navbar.component';
+import {SidebarComponent} from '../common/sidebar/sidebar.component';
 import {ProfileEditService} from '../Profile/profile-edit/profile-edit.service';
 import {ProfileEditResource} from '../Profile/profile-edit/profile-edit.resource';
 import {FormsModule} from '@angular/forms';
@@ -20,8 +20,8 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
     declarations: [
         MyArticleComponent,
         CreateArticleComponent,
-        ProfileNavbarComponent,
-        ProfileSidebarComponent,
+        NavbarComponent,
+        SidebarComponent,
     ],
     imports: [
         CommonModule,

@@ -6,7 +6,7 @@ import {LoginService} from './login/login.service';
 import {LoginResource} from './login/login.resource';
 import {AuthRoutingModule} from './auth-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NavbarModule} from '../auth-navbar/navbar.module';
+import {NavbarModule} from './auth-navbar/navbar.module';
 import {RegisterService} from './register/register.service';
 import {RegisterResource} from './register/register.resource';
 import {HttpClientModule} from '@angular/common/http';

@@ -1,15 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Profile} from '../Profile/profile-edit/model/profile.model';
+import {Profile} from '../../Profile/profile-edit/model/profile.model';
 
 @Component({
     selector: 'app-profile-navbar',
-    templateUrl: './profile-navbar.component.html',
+    templateUrl: './navbar.component.html',
     styleUrls: [
-        './profile-navbar.component.scss',
+        './navbar.component.scss',
     ]
 })
-export class ProfileNavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit {
     @Input()
     private profile: Profile;
 

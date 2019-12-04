@@ -12,7 +12,7 @@ import {ChangeEvent, CKEditorComponent} from '@ckeditor/ckeditor5-angular';
     styleUrls: [
         './create-article.component.scss',
         '../../Profile/profile-edit/profile-edit.component.scss',
-        '../../profile-navbar/profile-navbar.component.scss',
+        '../../common/navbar/navbar.component.scss',
     ]
 })
 export class CreateArticleComponent implements OnInit {

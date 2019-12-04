@@ -1,11 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProfileEditService} from './profile-edit.service';
 import {Router} from '@angular/router';
 import {Profile} from './model/profile.model';
 import {environment} from '../../../environments/environment';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {confirmPasswordValidator} from '../../_helpers/confirm-password-validator';
-import {UpdateProfileDto} from '../../../../../back/src/profile/dto/update-profile.dto';
 
 @Component({
     selector: 'app-profile-edit',
