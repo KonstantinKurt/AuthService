@@ -9,10 +9,10 @@
                         <div class="article-card" [class.selected] = "article === selectedArticle">
                             <img src="{{article.photo}}">
                             <div class="article-info">
-                                <h4><p>Title: <span style="color: blue">{{article.title}}</span> </p>
+                                <h4><span>Title: <span style="color: blue">{{article.title}} &nbsp;&nbsp;</span> </span>
                                     <span>Created: <span style="color: blue">{{article.createdAt | date }}</span></span>
                                 </h4>
-<!--                                <h5>{{article.content}}</h5><br/>-->
+                                <div class="article-content" [innerHTML]="article.content"></div>
                             </div>
                         </div>
                     </li>
