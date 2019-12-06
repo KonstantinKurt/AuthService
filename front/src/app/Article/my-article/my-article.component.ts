@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Profile} from '../../Profile/profile-edit/model/profile.model';
 import {ProfileEditService} from '../../Profile/profile-edit/profile-edit.service';
 import {Article} from '../model/article.model';
@@ -18,6 +18,8 @@ export class MyArticleComponent implements OnInit {
     private profile: Profile;
     private articles: Article[];
     private selectedArticle: Article;
+    @ViewChild('articleContentRef', {static: false})
+    articleContentRef: ElementRef;
 
     constructor(
         private profileEditService: ProfileEditService,
@@ -61,9 +63,15 @@ export class MyArticleComponent implements OnInit {
     async getArticleFromList(article: Article) {
         this.selectedArticle = article;
         alert(JSON.stringify(this.selectedArticle));
+        console.log(this.articleContentRef);
+
     }
 
     async createArticle() {
         this.router.navigateByUrl('article/create');
+    }
+
+    async redirectToArticle() {
+
     }
 }

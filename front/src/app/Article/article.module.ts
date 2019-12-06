@@ -14,6 +14,7 @@ import {CreateArticleComponent} from './create-article/create-article.component'
 import {CreateArticleService} from './create-article/create-article.service';
 import {CreateArticleResource} from './create-article/create-article.resource';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import { ViewArticleComponent } from './view-article/view-article.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
         CreateArticleComponent,
         NavbarComponent,
         SidebarComponent,
+        ViewArticleComponent,
     ],
     imports: [
         CommonModule,

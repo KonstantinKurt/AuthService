@@ -44,6 +44,7 @@ export class ArticleService {
             const author = await this.profileRepository.findOne({user: userData.id}, {relations: ['articles']});
             return {
                 result: await author.articles.map(el => ({
+                    id: el.id,
                     title: el.title,
                     photo: el.photo,
                     createdAt: el.createdAt,

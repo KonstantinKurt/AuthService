@@ -9,11 +9,12 @@
                         <div class="article-card" [class.selected] = "article === selectedArticle">
                             <img src="{{article.photo}}">
                             <div class="article-info">
-                                <h4><span>Title: <span style="color: blue">{{article.title}} &nbsp;&nbsp;</span> </span>
+                                <h4><span>Title: <span style="color: blue;">{{article.title}} &nbsp;&nbsp;</span> </span>
                                     <span>Created: <span style="color: blue">{{article.createdAt | date }}</span></span>
                                 </h4>
-                                <div class="article-content" [innerHTML]="article.content"></div>
+                                <div class="article-content"  #articleContentRef [innerHTML]="article.content"></div>
                             </div>
+                            <div class="ref-container"> <a [routerLink]="['/article', article.id]">view article</a></div>
                         </div>
                     </li>
                 </ul>

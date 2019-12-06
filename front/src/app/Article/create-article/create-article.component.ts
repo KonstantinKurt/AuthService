@@ -57,6 +57,7 @@ export class CreateArticleComponent implements OnInit {
    async createArticle() {
         if (!this.article.title) {
             this.titleRequired = true;
+            return;
         }
         this.article.photo = '';
         console.log(this.article);
