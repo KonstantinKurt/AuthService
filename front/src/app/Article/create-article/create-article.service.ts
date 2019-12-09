@@ -13,7 +13,7 @@ export class CreateArticleService {
     ) {
     }
 
-    createArticle(article: Article): Observable<object> {
+    createArticle(article: Article): Observable<Article> {
         return this.articleResource.createArticle(article);
     }
 }

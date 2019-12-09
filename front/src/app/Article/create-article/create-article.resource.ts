@@ -29,8 +29,8 @@ export class CreateArticleResource {
         };
     }
 
-     createArticle(article: Article): Observable<object> {
-        return this.httpClient.post(this.hostUrl, article, this.httpOptions);
+     createArticle(article: Article): Observable<Article> {
+        return this.httpClient.post<Article>(this.hostUrl, article, this.httpOptions);
     }
 
 

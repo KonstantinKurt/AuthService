@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
 import {environment} from '../../../environments/environment';
+import {Article} from '../model/article.model';
+import {catchError} from 'rxjs/operators';
+import {RequestOptions} from 'http';
 
 @Injectable()
 export class MyArticleResource {
     private readonly hostUrl = `${environment.hostUrl}article`;
     private readonly httpOptions: object;
-    private readonly httpOptionsFormData: object;
     private readonly token: string;
 
     constructor(
@@ -21,15 +23,23 @@ export class MyArticleResource {
             }),
             observe: 'response',
         };
-        this.httpOptionsFormData = {
-            headers: new HttpHeaders({
-                authorization: this.token
-            }),
-        };
     }
 
-    getAllProfileArticles(): Observable<object> {
-        return this.httpClient.get<object>(this.hostUrl, this.httpOptions);
+    getAllProfileArticles(): Observable<Article> {
+        return this.httpClient.get<Article>(this.hostUrl, this.httpOptions);
+    }
+
+    getArticle(id: string): Observable<Article> {
+        const httpOptions1 = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                authorization: this.token,
+            }),
+            observe: 'response' as 'body',
+            params: new HttpParams().set('id', id),
+        };
+        return this.httpClient.get<Article>(this.hostUrl, httpOptions1);
+
     }
 
 }
