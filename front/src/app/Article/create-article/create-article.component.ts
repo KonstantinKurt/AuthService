@@ -13,7 +13,7 @@ import {CreateArticleService} from './create-article.service';
     styleUrls: [
         './create-article.component.scss',
         '../../Profile/profile-edit/profile-edit.component.scss',
-        '../../common/navbar/navbar.component.scss',
+        '../../shared/navbar/navbar.component.scss',
     ]
 })
 export class CreateArticleComponent implements OnInit {

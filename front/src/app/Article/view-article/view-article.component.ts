@@ -8,7 +8,7 @@ import {ActivatedRoute, Params} from '@angular/router';
     templateUrl: './view-article.component.html',
     styleUrls: ['./view-article.component.scss',
         '../../Profile/profile-edit/profile-edit.component.scss',
-        '../../common/navbar/navbar.component.scss',
+        '../../shared/navbar/navbar.component.scss',
     ]
 })
 export class ViewArticleComponent implements OnInit {

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AuthGuard} from './_guards/auth.guard';
-import {UnauthorizedComponent} from './common/unauthorized/unauthorized.component';
+import {UnauthorizedComponent} from './shared/unauthorized/unauthorized.component';
 import {AboutComponent} from './About/about.component';
 
 

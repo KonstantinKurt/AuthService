@@ -2,8 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MyArticleComponent} from './my-article/my-article.component';
 import {ArticleRoutingModule} from './article-routing.module';
-import {NavbarComponent} from '../common/navbar/navbar.component';
-import {SidebarComponent} from '../common/sidebar/sidebar.component';
 import {ProfileEditService} from '../Profile/profile-edit/profile-edit.service';
 import {ProfileEditResource} from '../Profile/profile-edit/profile-edit.resource';
 import {FormsModule} from '@angular/forms';
@@ -15,18 +13,18 @@ import {CreateArticleService} from './create-article/create-article.service';
 import {CreateArticleResource} from './create-article/create-article.resource';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import { ViewArticleComponent } from './view-article/view-article.component';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
     declarations: [
         MyArticleComponent,
         CreateArticleComponent,
-        NavbarComponent,
-        SidebarComponent,
         ViewArticleComponent,
     ],
     imports: [
         CommonModule,
+        SharedModule,
         ArticleRoutingModule,
         FormsModule,
         HttpClientModule,

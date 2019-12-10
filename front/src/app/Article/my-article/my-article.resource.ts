@@ -4,7 +4,6 @@ import {Observable, of} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {Article} from '../model/article.model';
 import {catchError} from 'rxjs/operators';
-import {RequestOptions} from 'http';
 
 @Injectable()
 export class MyArticleResource {

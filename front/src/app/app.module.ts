@@ -6,8 +6,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AboutModule} from './About/about.module';
 import {AuthGuard} from './_guards/auth.guard';
 import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
-import {UnauthorizedModule} from './common/unauthorized/unauthorized.module';
 import {AuthNavbarModule} from './Auth/auth-navbar/auth-navbar.module';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -19,7 +19,7 @@ import {AuthNavbarModule} from './Auth/auth-navbar/auth-navbar.module';
         AppRoutingModule,
         ReactiveFormsModule,
         AboutModule,
-        UnauthorizedModule,
+        SharedModule,
         JwtModule.forRoot({}),
     ],
     providers: [
