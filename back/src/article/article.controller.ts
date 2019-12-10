@@ -16,6 +16,7 @@ import {
 import {ArticleService} from './article.service';
 import {AuthGuard} from '@nestjs/passport';
 import {ArticleDto} from './dto/article.dto';
+import {ArticleEntity} from "./entity/article.entity";
 
 @ApiUseTags('Article controller')
 @Controller('article')
@@ -45,7 +46,7 @@ export class ArticleController {
     @HttpCode(201)
     async create(@Req() req, @Body() articleData: ArticleDto): Promise<any> {
         const token = req.header(`authorization`).split(' ')[1];
-        return await this.articleService.create(token, articleData);
+        return await this.articleService.createArticle(token, articleData);
     }
 
     @Delete('/:id')
@@ -56,7 +57,6 @@ export class ArticleController {
     @ApiResponse({status: 200, description: 'Article deleted successfully'})
     @HttpCode(200)
     async deleteOwnArticle(@Param('id') id: string, @Req() req): Promise<any> {
-        Logger.log(id);
         const token = req.header(`authorization`).split(' ')[1];
         return await this.articleService.deleteOwnArticle(token, id);
     }
@@ -69,5 +69,18 @@ export class ArticleController {
     async serveAvatar(@Param('id') id: string, @Res() res): Promise<any> {
         res.sendFile(id, {root: 'src/public/articles'});
     }
+
+    @Get('/:id')
+    @ApiBearerAuth()
+    @ApiInternalServerErrorResponse({description: 'Something went wrong!...'})
+    @ApiOperation({title: 'Get article by id'})
+    @ApiResponse({status: 200, description: 'Article found successfully'})
+    async getArticle(@Param('id') id: string): Promise<any> {
+        return this.articleService.getArticle(id);
+    }
+
+
+
+
 
 }

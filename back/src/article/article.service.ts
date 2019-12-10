@@ -17,7 +17,7 @@ export class ArticleService {
     ) {
     }
 
-    async create(token: string, articleData: ArticleDto) {
+    async createArticle(token: string, articleData: ArticleDto) {
         try {
             const userData: any = await this.jwtService.decode(token);
             const author = await this.profileRepository.findOne({user: userData.id});
@@ -65,6 +65,19 @@ export class ArticleService {
             const articleToDelete = await this.articleRepository.delete({id});
             return {
                 message: `Article deleted successfully!`,
+            };
+        } catch (error) {
+            throw new HttpException({
+                error: error.message,
+            }, 400);
+        }
+    }
+
+    async getArticle(id: string) {
+        try {
+            const article: ArticleEntity = await this.articleRepository.findOne({where: {id}});
+            return {
+                result: article,
             };
         } catch (error) {
             throw new HttpException({
